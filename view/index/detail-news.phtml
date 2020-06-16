@@ -1,0 +1,224 @@
+<?php
+
+
+
+
+
+
+
+
+?>
+
+
+<div class="container-fluid" style="background-color: white">
+		<div class="container">
+			<div class="row header">
+                <div class="col-md-2">
+                    <span><?php
+                        if (isset($this->view->LoadOne)) {
+
+                            $link_anh = $this->view->LoadOne['logo'];
+                            $link_ct = "?action=company&id-ct={$this->view->LoadOne['id']}";
+                            echo "<a href = '$link_ct' ><img src = '$link_anh' class='img-fluid' alt = '{$this->view->LoadOne["ten_cong_ty"]}'></a >";
+                        }
+                        ?>
+
+                    </span>
+                </div>
+                <div class="col-md-10 menu-company">
+                    <ul>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=list-item&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Dịch vụ xe </li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=album&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Thư viện</a></li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=news&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Tin tức</a></li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=introduction&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Giới thiệu</a></li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=contact&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Liên hệ</a></li>
+                        <div class="clearfix"></div>
+
+
+
+                    </ul>
+                </div>
+			</div>	
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12 box-title-news">
+				<h2>Chi tiết tin tức</h2>
+
+			</div>
+			
+			
+		</div>
+	</div><div style="height: 80px"></div>
+	<div class="container-fluid">
+		<div class="container">		
+			
+			<div class="row">
+				<div class="col-md-8">
+					<div class="row">
+						
+						<div class="col-md-12">
+							<div class="tieu-de">
+								<h2><?php
+
+                                    if (isset($this->view->LoadDetail)) {
+                                        echo $this->view->LoadDetail['ten_bv'];
+
+                                    }
+
+
+
+
+                                    ?></h2>
+								<p>Người viết: <span><a href=""><?php
+
+                                            if (isset($this->view->LoadDetail)) {
+                                                echo $this->view->LoadDetail['ho_ten'];
+
+                                            }
+
+
+                                            ?></a></span> - <i class="fa fa-calendar" aria-hidden="true">
+                                        <?php
+
+                                        if (isset($this->view->LoadDetail)) {
+                                            $date = date_create($this->view->LoadDetail['ngay_dang']);
+                                            $new_date = date_format($date,"d/m/Y");
+                                            echo $new_date;
+
+                                        }
+
+
+                                        ?>
+                                    </i></p>
+							</div>
+						</div>
+							
+						
+					</div>
+					<div style="height: 50px"></div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="chi-tiet-tin-tuc">
+                                <?php
+								if (isset($this->view->LoadDetail)) {
+								    $link_anh = $this->view->LoadDetail['hinh_anh'];
+                                    echo "<img src = '$link_anh' class='img-fluid' alt = 'Responsive image' >";
+								}
+
+                                 ?>
+								<div class="bai-viet">
+									<p><?php
+
+                                        if (isset($this->view->LoadDetail)) {
+
+                                            echo $this->view->LoadDetail['noi_dung'];
+
+                                        }
+
+
+                                        ?></p>
+								</div>
+							</div>
+						</div>		
+					</div><div style="height: 50px"></div>
+					
+					
+				</div>
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-md-3 title-news2">
+							<h3>Video</h3>
+						</div>
+						<div class="col-md-9 line-news">
+						</div>
+					</div><div style="height: 50px"></div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="video">
+								<iframe width="100%" height="auto" src="https://www.youtube.com/embed/5J-V4hAZt74" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+							</div>
+						</div>
+					</div><div style="height: 30px"></div>
+					<div class="row">
+						<div class="col-md-6 col-sm-6">
+							<div class="video">
+								<iframe width="100%" height="auto" src="https://www.youtube.com/embed/R8t-wlpFq3E" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6">
+							<div class="video">
+								<iframe width="100%" height="auto" src="https://www.youtube.com/embed/JjDpjeXw6ZA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+							</div>
+						</div>
+					</div><div style="height: 50px"></div>
+					<div class="row">
+						<div class="col-md-4 title-news2">
+							<h2>Từ khóa</h2>
+						</div>
+						<div class="col-md-8 line-news">
+						</div>
+					</div><div style="height: 50px"></div>
+					<div class="row">	
+						<div class="col-md-4">
+							<div class="tu-khoa">
+								<p><a href="">Lamborghini</a></p>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="tu-khoa">
+								<p><a href="">Lamborghini</a></p>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="tu-khoa">
+								<p><a href="">Lamborghini</a></p>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="col-md-4">
+							<div class="tu-khoa">
+								<p><a href="">Lamborghini</a></p>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="tu-khoa">
+								<p><a href="">Lamborghini</a></p>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="tu-khoa">
+								<p><a href="">Lamborghini</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div style="height: 50px"></div>
+
+
+
+
+
+
+
+
+
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>

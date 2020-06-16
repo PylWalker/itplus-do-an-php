@@ -1,0 +1,156 @@
+<?php
+?>
+
+
+
+
+
+<div class="container" style="margin-bottom: 100px;margin-top: 100px">
+    <h2 style="text-align: center;padding: 10px">Thêm mới xe</h2>
+    <?php
+
+        if (isset($this->view->err) && !empty($this->view->err)){
+
+            foreach ($this->view->err as $row){
+
+
+                echo "<p style='color: red;text-align: center'>{$row}</p>";
+
+
+
+
+            }
+
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+    ?>
+
+    <form method="post" action="" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <input type="text" name="ten_xe" placeholder="Nhập tên xe" style="width: 100%;margin-bottom: 20px" required>
+                <input type="file" name="f_upload" style="width: 100%;margin-bottom: 20px" required>
+                <input type="text" name="mau_xe" placeholder="Nhập màu xe" style="width: 100%;margin-bottom: 20px" required>
+                <input type="text" name="so_ghe" placeholder="Nhập số ghế" style="width: 100%;margin-bottom: 20px" required>
+                <input type="text" name="van_toc" placeholder="Nhập vận tốc" style="width: 100%;margin-bottom: 20px" required>
+                <input type="text" name="doi_xe" placeholder="Nhập đời xe" style="width: 100%;margin-bottom: 20px" required>
+                <input type="text" name="bien_so" placeholder="Nhập biển số" style="width: 100%;margin-bottom: 20px" required>
+                <input type="text" name="gia" placeholder="Nhập gia" style="width: 100%;margin-bottom: 20px" required>
+                <select name="nsx" class="the-select2" required>
+                    <option value="">--Nhà sản xuất--</option>
+                    <?php
+
+                    if (isset($this->view->NSX) && !empty($this->view->NSX)){
+
+                        foreach ($this->view->NSX as $row){
+
+                            echo "<option value='{$row['id']}'>{$row['ten_nsx']}</option>";
+
+
+
+
+
+
+                        }
+
+
+
+
+
+
+                    }
+
+
+
+
+
+
+
+
+                    ?>
+                </select>
+                <select name="loai_xe" class="the-select2" required>
+                    <option value="">--Loại xe--</option>
+                    <?php
+
+                    if (isset($this->view->LoaiXe) && !empty($this->view->LoaiXe)){
+
+                        foreach ($this->view->LoaiXe as $row){
+
+                            echo "<option value='{$row['id']}'>{$row['ten']}</option>";
+
+
+                        }
+
+
+
+                    }
+
+
+
+
+                    ?>
+                </select>
+                <textarea name="gioi_thieu" id="editor1" rows="50" cols="180">Giới thiệu xe</textarea>
+                <div style="height: 50px"></div>
+
+                <input type = 'submit' style = 'padding: 15px;background: white;border:1px solid black;cursor: pointer;width: 100%;' name="btn-add" value="add">
+
+
+
+            </div>
+            <div class="col-md-3"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<script type="text/javascript">
+    $('.the-select2').select2();
+</script>

@@ -1,0 +1,303 @@
+<div class="container-fluid" style="background-color: white">
+		<div class="container">
+			<div class="row header">
+                <div class="col-md-2">
+                    <span><?php
+                        if (isset($this->view->LoadOne)) {
+
+                            $link_anh = $this->view->LoadOne['logo'];
+                            $link_ct = "?action=company&id-ct={$this->view->LoadOne['id']}";
+                            echo "<a href = '$link_ct' ><img src = '$link_anh' class='img-fluid' alt = '{$this->view->LoadOne["ten_cong_ty"]}'></a >";
+                        }
+                        ?>
+
+                    </span>
+                </div>
+                <div class="col-md-10 menu-company">
+                    <ul>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=list-item&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Dịch vụ xe </li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=album&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Thư viện</a></li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=news&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Tin tức</a></li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=introduction&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Giới thiệu</a></li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=contact&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Liên hệ</a></li>
+                        <div class="clearfix"></div>
+
+
+
+                    </ul>
+                </div>
+
+			</div>	
+			
+
+
+
+
+
+
+
+
+
+
+		</div>
+
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12 box-title-news">
+				<h2>Giới thiệu</h2>
+
+			</div>
+			
+			
+		</div>
+	</div>
+
+	<div class="container-fluid background-color-gray">
+		<div class="container">
+		
+			<div class="row">
+				<div class="col-md-12">
+					<div class="anh-bia-dai-dien">
+						<div class="anh-bia">
+							<h2 style="color: white">
+                                <?php
+
+                                if (isset($this->view->LoadOne)){
+
+
+                                    echo $this->view->LoadOne['ten_dai_dien'];
+
+
+                                }
+
+
+
+
+                                ?>
+                            </h2>
+							<p>Tổng giám đốc/Chủ tịch hội đồng quản trị</p>
+							<!-- <div style="width: 25%;margin: auto;text-align: left;"> -->
+								<i class="fa fa-building-o" aria-hidden="true"> <?php
+
+                                    if (isset($this->view->LoadOne)){
+
+
+                                        echo $this->view->LoadOne['ten_cong_ty'];
+
+
+                                    }
+
+
+
+
+                                    ?></i><br>
+
+								<i class="fa fa-envelope-o" aria-hidden="true"> <?php
+
+                                    if (isset($this->view->LoadOne)){
+
+
+                                        echo $this->view->LoadOne['email'];
+
+
+                                    }
+
+
+
+
+                                    ?></i><br>
+
+								<i class="fa fa-mobile" aria-hidden="true"> <?php
+
+                                    if (isset($this->view->LoadOne)){
+
+
+                                        echo $this->view->LoadOne['sdt_cong_ty'];
+
+
+                                    }
+
+
+
+
+                                    ?></i><br>
+								<i class="fa fa-map-marker" aria-hidden="true"> <?php
+
+                                    if (isset($this->view->LoadOne)){
+
+
+                                        echo "{$this->view->LoadOne['ten_phuong']},{$this->view->LoadOne['ten_quan']},{$this->view->LoadOne['ten_tinh']}";
+
+
+                                    }
+
+
+
+
+                                    ?></i>
+							<!-- </div>	 -->
+							
+						</div>
+						<div class="anh-dai-dien">
+                            <?php
+                            if (isset($this->view->LoadOne)){
+
+                                    $link_anh = $this->view->LoadOne['logo'];
+                                echo "<img src='$link_anh' class='img-fluid' alt='{$this->view->LoadOne['ten_cong_ty']}'>";
+
+
+                            }
+
+
+							?>
+						</div>
+						
+						
+						
+						
+
+						
+					</div>
+				</div>
+
+
+
+				
+			</div>
+
+			<div class="row">
+				<div class="col-md-1">
+					
+				</div>
+				<div class="col-md-10">
+					<div class="box-gioi-thieu" id="left">
+							<div class="gioi-thieu">
+								<span class="fa-stack fa-lg">
+									<i class="fa fa-circle-thin fa-stack-2x"></i>
+									<i class="fa fa-twitter fa-stack-1x"></i>
+								</span>
+								<span class="fa-stack fa-lg">
+									<i class="fa fa-circle-thin fa-stack-2x"></i>
+									<i class="fa fa-facebook fa-stack-1x"></i>
+								</span>
+								<span class="fa-stack fa-lg">
+									<i class="fa fa-circle-thin fa-stack-2x"></i>
+									<i class="fa fa-google-plus fa-stack-1x"></i>
+								</span>
+								<span class="fa-stack fa-lg">
+									<i class="fa fa-circle-thin fa-stack-2x"></i>
+									<i class="fa fa-instagram fa-stack-1x"></i>
+								</span>
+								
+								<span class="fa-stack fa-lg">
+									<i class="fa fa-circle-thin fa-stack-2x"></i>
+									<i class="fa fa-youtube fa-stack-1x"></i>
+								</span>
+							</div>
+							<div style="text-align: center;margin-top: 20px;color:#757575">
+								<i class="fa fa-quote-left fa-1x"></i> Book is the key of the life <i class="fa fa-quote-right fa-1x"></i>
+							</div>
+
+
+						</div>
+				</div>
+				<div class="col-md-1">
+					
+				</div>
+			</div><div class="clearfix"></div>
+				<div class="row" style="margin-bottom: 100px;">
+					
+						
+							<div class="col-md-1"></div>
+							<div class="col-md-10">
+						        
+						        		
+						        	<div class="row">
+						        		<div class="col-md-6 image-education"  data-aos="fade-right">
+						        			<img src="public/assets/img/xe-45.jpg" class="img-fluid" alt="Responsive image">
+						        		</div>
+						        		<div class="col-md-6 education"   data-aos="fade-left">
+						        			<p>Acer luôn hướng đến tương lai bằng cách tập trung vào việc tạo ra một thế giới mà phần cứng, phần mềm và dịch vụ sẽ kết nối với nhau để đem đến những điều mới mẻ cho người dùng và doanh nghiệp. </p>
+						        		</div>
+						        	</div>
+						        			
+						        		
+						        
+						      	</div>
+						    <div class="col-md-1"></div>  	
+				      	
+				      	
+				      	
+					
+				</div>	
+				<div class="clearfix"></div>
+				<div class="row" style="margin-bottom: 100px;">
+						<div class="col-md-1"></div>
+							<div class="col-md-10">
+					        	<div class="aos-item__inner">
+					        		
+					        			<div class="row">
+					        				<div class="col-md-6 education"  data-aos="fade-right">
+					        					<p>Từ các công nghệ hướng dịch vụ đến mạng lưới thiết bị kết nối Internet (IOT), hơn 7,000 nhân viên Acer đã cùng nhau nghiên cứu, thiết kế, marketing, bán hàng và đưa ra các giải pháp hỗ trợ sản phẩm để phá vỡ rào cản giữa con người và công nghệ.</p>
+					        				</div>
+					        				<div class="col-md-6"  aos-item" data-aos="fade-left">
+					        					
+					        					<video width="100%" controls>
+												  	<source src="public/assets/video/video2.mp4" type="video/mp4">
+												  	
+												</video>
+					        				</div>
+					        			</div>
+					        			
+					        		
+					        	</div>
+					      	</div>
+					    <div class="col-md-1"></div>  	
+			    </div>
+			    <div class="clearfix"></div>
+			    <div class="row">
+					
+						
+							<div class="col-md-1"></div>
+							<div class="col-md-10">
+						        <div class="aos-item__inner">
+						        		
+						        	<div class="row">
+						        		<div class="col-md-6"  aos-item" data-aos="fade-right">
+					        					
+					        					<video width="100%" controls="controls">
+												  	<source src="public/assets/video/video3.mp4" type="video/mp4">
+												  	
+												</video>
+					        				</div>
+						        		<div class="col-md-6 education"  aos-item" data-aos="fade-left">
+						        			<p>Câu chuyện của CARS 3 bắt nguồn từ vụ va chạm giữa Lightning McQueen cùng dòng xe đua thế hệ mới. Sau khi bị chấn thương, McQueen đột nhiên bị loại ra khỏi môn thể thao đua xe mà anh yêu thích. Để quay lại đường băng, anh cần sự trợ giúp từ một nữ kỹ thuật viên trẻ tuổi </p>
+						        		</div>
+						        	</div>
+						        			
+						        		
+						        </div>
+						    </div>
+						    <div class="col-md-1"></div>  	
+				      	
+				      	
+				      	
+					
+				</div>	
+				<div class="clearfix"></div>
+				<div style="height: 50px"></div>
+
+			
+			
+		</div>
+	</div>
+	
+	
+
+
+      
+
+
+
+

@@ -1,0 +1,98 @@
+<div class="container-fluid" style="background-color: white">
+		<div class="container">
+			<div class="row header">
+                <div class="col-md-2">
+                    <span><?php
+                        if (isset($this->view->LoadOne)) {
+
+                            $link_anh = $this->view->LoadOne['logo'];
+                            $link_ct = "?action=company&id-ct={$this->view->LoadOne['id']}";
+                            echo "<a href = '$link_ct' ><img src = '$link_anh' class='img-fluid' alt = '{$this->view->LoadOne["ten_cong_ty"]}'></a >";
+                        }
+                        ?>
+
+                    </span>
+                </div>
+                <div class="col-md-10 menu-company">
+                    <ul>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=list-item&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Dịch vụ xe </li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=album&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Thư viện</a></li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=news&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Tin tức</a></li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=introduction&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Giới thiệu</a></li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=contact&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Liên hệ</a></li>
+                        <div class="clearfix"></div>
+
+
+
+                    </ul>
+                </div>
+
+			</div>	
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12 box-title-news">
+				<h2>Liên hệ</h2>
+
+			</div>
+			
+			
+		</div>
+	</div>
+			
+			<div style="height: 80px"></div>
+			<div class="container-fluid contact">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="map" id="googleMap" style="width:100%;height:410px;">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6264.162047037009!2d105.80366066047938!3d21.004938360842097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xeea32ea14ac4f313!2sITPlus+Academy!5e0!3m2!1svi!2s!4v1531277797685" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+
+							</div>
+
+						</div>
+						<div class="col-md-6">
+							<div class="send">
+								<form>
+									<h3>Viết nhận xét</h3>
+									<p>Nếu bạn có thắc mắc gì, có thể gửi yêu cầu cho chúng tôi, chúng tôi sẽ liên lạc với bạn sớm nhất có thể</p>
+									<input type="text" name="" class="form-control" placeholder="Tên của bạn"><br>
+									<input type="text" name="" class="form-control" placeholder="Email của bạn"><br>
+									<textarea rows="5" class="form-control" placeholder="Viết bình luận"></textarea>
+									<button type="button" class="hvr-curl-top-left"><a href="">Send</a></button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="height: 50px"></div>
+
+
+
+
+
+
+
+
+<!-- <script>
+ function initMap() {
+   var uluru = {lat: 21.0055311, lng: 105.8018413};
+   var map = new google.maps.Map(document.getElementById('googleMap'), {
+   zoom: 17,
+   center: uluru
+ });
+ var marker = new google.maps.Marker({
+   position: uluru,
+   map: map
+ });
+ }
+</script>
+<script async defer
+ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSxLoeVH330_x1JYvbWXnNmGFAKFKOPeE&callback=initMap">
+</script>
+		 -->
+	
+

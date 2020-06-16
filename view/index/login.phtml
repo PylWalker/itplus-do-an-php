@@ -1,0 +1,90 @@
+<?php
+
+
+
+?>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" style="text-align: center;">
+            <h1 style="text-align: center"> Đăng nhập hoặc <a href=""> Đăng ký </a></h1>
+
+            <div class="row"  style="padding-bottom:20px">
+                <div class="col-md-3"> </div>
+                <div class="col-md-2">
+                    <div class="line"></div>
+                </div>
+
+                <div class="col-md-2"> <h3 style="font-size:30px"> Với </h3> </div>
+
+                <div class="col-md-2">
+                    <div class="line"></div>
+                </div>
+                <div class="col-md-3"> </div>
+            </div>
+
+            <div class="row" ">
+            <div class="col-md-3"> </div>
+            <div class="col-md-2 padding"> <button type="button" class="btn btn-lg btn-fb"> <i class="fa fa-facebook pr-1"></i> Facebook</button> </div>
+            <div class="col-md-2 padding"> <button type="button" class="btn btn-lg btn-tw"> <i class="fa fa-twitter pr-1"></i> Twitter</button> </div>
+            <div class="col-md-2 padding"> <button type="button" class="btn btn-lg btn-gplus"> <i class="fa fa-google-plus pr-1"></i> Google +</button> </div>
+            <div class="col-md-3"> </div>
+
+
+
+        </div>
+
+
+        <div class="row"  style="padding-bottom:20px; padding-top: 10px ">
+            <div class="col-md-3"> </div>
+            <div class="col-md-2">
+                <div class="line"></div>
+            </div>
+
+            <div class="col-md-2"> <h3> Hoặc </h3> </div>
+
+            <div class="col-md-2">
+                <div class="line"></div>
+            </div>
+            <div class="col-md-3"> </div>
+        </div>
+
+
+
+
+        <div class="form">
+            <?php
+
+            if (isset($this->view->err)){
+                foreach ($this->view->err as $row){
+
+                    echo "<p style='text-align: center;color:red'>$row</p>";
+
+
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+            ?>
+            <form action="" method="post">
+                <input type="text" name="txt_username" placeholder="Tên đăng nhập/email"> <br> <br>
+                <input type="password" name="txt_passwd" placeholder="Mật khẩu"> <br> <br>
+
+                <input type="submit" name="" value="Đăng nhập"> <br> <br>
+
+                <a href=""> Quên mật khẩu? </a> <br> <br>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</div>

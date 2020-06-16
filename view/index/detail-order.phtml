@@ -1,0 +1,163 @@
+<?php
+?>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $(".order-button").click(function () {
+
+            trang_thai = "1";
+            id_dh = "<?php echo $_GET['id-order']; ?>";
+
+            $.ajax({
+
+                url:"core/xuly_donhang.php",
+                type:"post",
+                data:"id_tt="+trang_thai+"&id_dh="+id_dh,
+                async:true,
+                success:function(){
+                    alert("Don hang cua ban da duoc xac nhan thanh cong");
+                }
+
+            })
+
+        });
+
+    });
+
+
+
+
+
+
+
+</script>
+<div class="container" style="margin-top: 100px;margin-bottom: 100px">
+    <div class="row">
+        <div class="col-md-6 col-sm-4">
+            <div class="detail-order-car">
+                <img src='<?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['hinh_anh']; ?>' class='img-fluid'>
+                <p><?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['ten_xe']; ?></p>
+                <p><?php if (isset($this->view->LoadOne)) echo number_format($this->view->LoadOne['gia_thue_moi']); ?></p>
+
+            </div>
+
+
+        </div>
+        <div class="col-md-6 col-sm-8">
+            <div class="detail-order">
+               <div class="row">
+                   <div class="col-md-6">
+                       <p>ID đơn hàng: <?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['id']; ?></p>
+                   </div>
+                   <div class="col-md-6">
+                       <p>Ngày gửi: <?php if (isset($this->view->LoadOne)){
+                           $date = date_create($this->view->LoadOne['ngay_gui']);
+                           $new_date = date_format($date,"d/m/Y");
+                           echo $new_date;
+                       } ?></p>
+                   </div>
+
+               </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>Nội dung thuê:</label>
+                        <p class="detail-order-content"><?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['noi_dung']; ?></p>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="detail-order-user">
+                <h2 style="padding-bottom: 15px"><i class="fa fa-wpforms" aria-hidden="true"></i> Hồ sơ người thuê</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Họ tên: <?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['ho_ten']; ?></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Số điện thoại: <?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['so_dien_thoai']; ?></p>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Địa chỉ: <?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['dia_chi']; ?></p>
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Email: <?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['email']; ?></p>
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Công việc: <?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['cong_viec']; ?></p>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <div class="detail-order-confirm">
+                <div class="row">
+                    <div class="col-md-7">
+                        <?php
+                        if ($this->view->LoadOne['trang_thai']==0){
+                            echo "Đơn hàng chưa được xác nhận";
+
+
+                        }
+                        else
+                            echo "Đơn hàng đã được xác nhận";
+
+
+
+
+
+
+                        ?>
+                    </div>
+                    <div class="col-md-5">
+                        <?php
+                            if ($this->view->LoadOne['trang_thai']==0){
+                                echo "
+                                    <form action='' method='post'>
+                                    
+                                    <button type='submit' class='order-button'>Xác nhận đơn hàng</button>
+                                    </form>";
+
+
+                            }
+
+                        ?>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+    </div><br><br><br><br>
+    <p class="detail"><button><a href="?action=order-list">Trở về trang đơn hàng</a></button></p>
+
+
+
+
+
+
+
+
+
+</div>

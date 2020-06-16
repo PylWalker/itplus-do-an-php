@@ -1,0 +1,564 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $(".com-submit").click(function () {
+
+            content = $(".text-comment").val();
+            ten = '<?php echo $_SESSION['auth']->ho_ten ?>';
+            id_xe = <?php echo $_GET['id-xe'] ?>;
+            id_user = <?php echo $_SESSION['auth']->id_user ?>;
+            date = '<?php $dt = new DateTime();
+                $time = $dt->format('Y-m-d H:i:s');
+                echo $time ?>';
+            $.ajax({
+
+                url:"core/xuly_comment.php",
+                type:"post",
+                data:"mess="+content+"&id_xe="+id_xe+"&id_user="+id_user+"&ngay_gio_binh_luan="+date+"&ho_ten="+ten,
+                async:true,
+                success:function(result){
+                    $(".haha:eq(0)").before(result);
+                }
+
+            })
+
+        });
+
+    });
+    $(document).ready(function() {
+
+        $(".reply-button").click(function(){
+
+
+            id_com = $(this).attr("data-comid");
+            rep_content = $(".rep-mess"+id_com).val();
+            ten = '<?php echo $_SESSION['auth']->ho_ten ?>';
+            id_user = <?php echo $_SESSION['auth']->id_user ?>;
+
+
+            $.ajax({
+
+                url:"core/xuly_reply.php",
+                type:"post",
+                data:"mess="+rep_content+"&id_comment="+id_com+"&ho-ten="+ten+"&id-user="+id_user,
+                async:true,
+                success:function(kq){
+                    $(".reply-content2"+id_com).html(kq);
+                }
+
+
+
+            })
+
+        });
+
+    });
+
+
+
+
+</script>
+
+
+
+
+<div class="container-fluid" style="background-color: white">
+		<div class="container">
+			<div class="row header">
+                <div class="col-md-2">
+                    <span><?php
+                        if (isset($this->view->LoadOne)) {
+
+                            $link_anh = $this->view->LoadOne['logo'];
+                            $link_ct = "?action=company&id-ct={$this->view->LoadOne['id']}";
+                            echo "<a href = '$link_ct' ><img src = '$link_anh' class='img-fluid' alt = '{$this->view->LoadOne["ten_cong_ty"]}'></a >";
+                        }
+                        ?>
+
+                    </span>
+                </div>
+                <div class="col-md-10 menu-company">
+                    <ul>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=list-item&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Dịch vụ xe </li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=album&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Thư viện</a></li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=news&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Tin tức</a></li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=introduction&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Giới thiệu</a></li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=contact&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Liên hệ</a></li>
+                        <div class="clearfix"></div>
+
+
+
+                    </ul>
+                </div>
+
+			</div>	
+			
+			
+			
+
+
+
+
+
+
+
+
+
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12 box-title-news">
+				<h2>Chi tiết xe</h2>
+
+			</div>
+			
+			
+		</div>
+	</div>
+	<div class="container-fluid item1">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 box-detail-item">
+					<div class="row">
+						<div class="col-md-9">
+							<h2><?php
+
+                                if (isset($this->view->LoadXe))
+
+                                    echo $this->view->LoadXe['ten_xe'];
+
+
+
+
+
+                                ?></h2>
+
+							<div class="main-image">
+                                <?php
+                                if (isset($this->view->LoadXe)) {
+                                        $link_anh = $this->view->LoadXe['hinh_anh'];
+                                    echo "<img src = '$link_anh' alt = 'Placeholder' class='custom' >";
+							    }
+                                ?>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="thuoc-tinh">
+                                <?php
+                                if (isset($this->view->LoadXe)) {
+                                        $gia = number_format($this->view->LoadXe['gia_thue_moi']);
+
+
+								echo "<h3>$gia đ/Ngày</h3>
+								<p>Màu sắc: {$this->view->LoadXe['mau_xe']}</p>";
+								if (isset($_SESSION['auth'])){
+                                    $link_dat = "?action=dat-thue&id-ct={$_GET['id-ct']}&id-xe={$this->view->LoadXe['id']}&id-user={$_SESSION['auth']->id_user}";
+								    echo"<button type='button' class='hvr-buzz' data-toggle='modal' data-target='#exampleModal2'><a>Đặt thuê</a></button>";
+								}
+								else{
+                                    echo"<button type='button' class='hvr-buzz' data-toggle='modal' data-target='#exampleModal'><a>ĐẶT THUÊ</a></button>";
+
+
+
+                                }
+
+
+								echo"<button type='button' class='hvr-buzz'><a href='?action=contact&id-ct={$_GET['id-ct']}'>Liên hệ công ty</a></button>";
+								}
+								?>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 style="text-align: center;color: black">Đăng nhập</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <form action="?controller=index&action=login" method="post">
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <input type="text" name="" class="form-control" placeholder="Tên đăng nhập" required>
+                                                        </div>
+
+                                                    </div><br>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <input type="password" name="" class="form-control" placeholder="Mật khẩu" required>
+                                                        </div>
+
+                                                    </div><br>
+                                                    <p class="detail" style="color: black">Chưa có tài khoản, <a href="">Đăng ký</a> ngay</p>
+                                                    <br>
+                                                    <p class="detail"><input type="submit" name="" class="hvr-grow-shadow" value="Đăng nhập"></p>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <?php
+                                                    if (isset($this->view->LoadXe)) {
+                                                        $link_anh = $this->view->LoadXe['hinh_anh'];
+                                                        echo "<img src = '$link_anh' alt = 'Placeholder' class='img-fluid' >";
+                                                        echo"<p style='color:black;text-align: center'>{$this->view->LoadXe['ten_xe']}</p>";
+                                                    }
+                                                    ?>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <form action="?action=dat-thue" method="post">
+                                                        <input type="hidden" name="id-ct" value="<?php echo $_GET['id-ct']; ?>">
+                                                        <input type="hidden" name="id-xe" value="<?php echo $_GET['id-xe']; ?>">
+
+                                                    <div style="padding: 10px">
+                                                        <textarea class="form-control" rows="6" placeholder="Nhap noi dung" name="content"></textarea>
+                                                    </div>
+                                                    <p class="detail"><button type="submit" class="hvr-shadow-radial"><a>Đặt thuê</a></button></p>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+							</div>
+						</div>	
+					</div><div class="clearfix"></div>	
+					<ul class="thumbnails">
+                        <?php
+                        if (isset($this->view->LoadXe)) {
+                            $link_anh = $this->view->LoadXe['hinh_anh'];
+                            echo "<div  class='hvr-bubble-top'><li><a href='$link_anh'><img src='$link_anh' alt=''></a></li></div>";
+                            if (isset($this->view->Gallery) && !empty($this->view->Gallery)){
+                                foreach ($this->view->Gallery as $row){
+                                    $link_anh1 = $row['link_anh'];
+                                    echo "<div  class='hvr-bubble-top'><li><a href='$link_anh1'><img src='$link_anh1' alt=''></a></li></div>";
+
+
+                                }
+
+
+                            }
+					   	}
+					    ?>
+					</ul>
+					
+					<ul class="nav nav-tabs" id="myTab" role="tablist">
+							  <li class="col-md-2 col-6 nav-item">
+							    <a class="nav-link active tab" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Thông số</a>
+							  </li>
+							  <li class="col-md-2 col-6 nav-item">
+							    <a class="nav-link tab" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Bình luận</a>
+							  </li>
+							  
+						</ul>
+					<div class="tab-content" id="myTabContent">
+						<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+							<div class="row">
+                                <div class="col-md-2"></div>
+								<div class="col-md-8">
+									<div class="box-thong-so">
+										<?php
+
+                                        if (isset($this->view->LoadXe)){
+
+                                            echo "<p style='text-align: center'>{$this->view->LoadXe['gioi_thieu_xe']}</p>";
+
+
+
+
+
+
+
+                                        }
+
+
+
+
+
+
+
+                                        ?>
+
+										<p>Động cơ</p>
+										<table align="center" cellspacing="5">
+                                            <?php
+                                            if (isset($this->view->LoadXe)) {
+
+                                                echo"<tr>
+                                                        <td > Màu xe </td >
+                                                        <td > {$this->view->LoadXe['mau_xe']}</td >
+                                                    </tr >
+                                                    <tr >
+                                                        <td > Số ghế </td >
+                                                        <td > {$this->view->LoadXe['so_ghe']} </td >
+                                                    </tr >
+                                                    <tr >
+                                                        <td > Vận tốc </td >
+                                                        <td > {$this->view->LoadXe['van_toc']} </td >
+                                                    </tr >
+                                                    <tr >
+                                                        <td > Đời xe </td >
+                                                        <td > {$this->view->LoadXe['doi_xe']} </td >
+                                                    </tr >
+                                                    <tr >
+                                                        <td > Biển số </td >
+                                                        <td > {$this->view->LoadXe['bien_so']} </td >
+                                                    </tr >
+                                                    <tr >
+                                                        <td > Nhà sản xuất </td >
+                                                        <td > {$this->view->LoadXe['ten_nsx']} </td >
+                                                    </tr >";
+                                                    }
+											?>
+										</table>
+
+
+									</div>
+								</div>
+                                <div class="col-md-2"></div>
+							</div>
+
+						</div>
+						<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+							<form>
+								<div class="row">
+									<div class="col-md-12">
+										
+										<div>
+											
+											<textarea rows="4" class="form-control text-comment" placeholder="Chưa có tài khoản đăng nhập ngay" <?php
+                                            if (!isset($_SESSION['auth']))
+
+                                                echo "data-toggle='modal' data-target='#exampleModal'";
+
+                                            ?>></textarea>
+											
+
+												<!-- Modal -->
+												<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+													<div class="modal-dialog" role="document">
+													    <div class="modal-content">
+													      	<div class="modal-header">
+													        	<h5 class="modal-title" id="exampleModalLabel">Đăng nhập</h5>
+													        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													          		<span aria-hidden="true">&times;</span>
+													        	</button>
+													      	</div>
+													      	<form action="" method="">
+														    	<div class="modal-body">
+														        	<div class="row">
+														        		<div class="col-md-12">
+														        			<input type="text" name="" class="form-control" placeholder="Tên đăng nhập" required>
+														        		</div>
+														        		
+														        	</div><br>
+														        	<div class="row">
+														        		<div class="col-md-12">
+														        			<input type="password" name="" class="form-control" placeholder="Mật khẩu" required>
+														        		</div>
+														        		
+														        	</div><br>
+														        	<p class="detail">Chưa có tài khoản, <a href="register.html">Đăng ký</a>ngay</p>
+														        	<br>
+														        	<p class="detail"><input type="submit" name="" class="hvr-grow-shadow" value="Đăng nhập"></p>
+														    	</div>
+													    	</form>
+													      	
+													    </div>
+													</div>
+												</div>
+											<p class="detail"><button type="submit" class="hvr-shadow-radial com-submit"><a>Bình luận</a></button></p>
+										</div>
+										
+									</div>
+
+								</div>
+							</form><br>
+							<div class="row">
+								<div class="col-md-12 khung">
+                                    <div class="box-comment">
+
+
+
+                                        <?php
+
+
+                                        if (isset($this->view->Comment) && !empty($this->view->Comment)){
+
+                                            foreach ($this->view->Comment as $row) {
+                                                if (!empty($row['avatar']))
+                                                    $link_anh = $row['avatar'];
+                                                else
+                                                    $link_anh = 'public/assets/img/icon/icon-user.png';
+                                                $date = date_create($row['ngay_gio_binh_luan']);
+                                                $newdate = date_format($date,"d/m/Y H:i:s");
+
+
+
+                                                echo"<div class='row haha'>
+                                            <div class='col-md-1 col-3' >
+                                                <img src = '$link_anh' class='img-fluid avatar' alt = 'Responsive image' >
+                                            </div >
+                                            <div class='col-md-11 col-9 haha' >
+                                                <p class='ten'> {$row['ho_ten']} <span class='ngay-comment' > $newdate </span ></p >
+                                                <p class='comment'> {$row['noi_dung']}</p>
+                                                <p class='reply'> Trả lời </p >
+                                                <form method='post' action=''>
+                                                    <div class='reply-content' >";
+                                                if (isset($_SESSION['auth'])){
+                                                    echo"<textarea rows=\"3\" class=\"form-control rep-mess{$row['id']}\"></textarea>
+           								                    <p class='detail' ><button type = 'submit' class='hvr-shadow-radial reply-button' data-comid='{$row['id']}'><a>Trả lời</a></button></p >
+                                                    </div >
+            
+                                                </form >";}
+                                                else{
+                                                    echo"<textarea rows=\"3\" class=\"form-control rep-mess{$row['id']}\" placeholder=\"Chưa có tài khoản đăng nhập ngay\" data-toggle='modal' data-target='#exampleModal'></textarea>
+           								                <p class='detail' ><button type = 'submit' class='hvr-shadow-radial reply-button' data-comid='{$row['id']}'>Trả lời</button></p >
+                                                    </div >
+            
+                                                </form >";
+
+                                                }
+
+                                                if (isset($this->view->Reply)) {
+                                                    foreach ($this->view->Reply as $row2) {
+                                                        if ($row2['id_comment'] == $row['id']) {
+                                                            $ngay_dang = date_create($row2['ngay_dang']);
+                                                            $ngay_dang_2 = date_format($ngay_dang,"d/m/Y");
+
+                                                            if (!empty($row2['avatar']))
+                                                                $link_anh2 = $row2['avatar'];
+                                                            else
+                                                                $link_anh2 = 'public/assets/img/icon/icon-user.png';
+                                                            echo "<div id = 'reply-content2{$row['id']}' >
+                                                                <div class='row' >
+                                                                    <div class='col-md-1 col-3' >
+                                                                        <img src = '$link_anh2' class='img-fluid avatar' alt = 'Responsive image' >
+                                                                    </div >
+                                                                    <div class='col-md-11 col-9' >
+                                                                        <p class='ten' > {$row2['ho_ten']} <span class='chuc-vu' ><i class='fa fa-star' aria - hidden = 'true' > Quản trị viên </i ></span ><span class='ngay-comment' > $ngay_dang_2 </span ></p ></p >
+                                                                        <p class='comment' > {$row2['noi_dung_reply']}</p >
+                        
+                        
+                        
+                                                                    </div >
+                                                                </div >
+                                                            </div >";
+                                                        }
+                                                    }
+                                                }
+
+                                                echo "</div></div >";
+
+                                            }}
+                                        else
+                                            echo "<p style='margin-left: 500px'>Chưa có bình luận nào</p>";
+                                        ?>
+
+
+                                        <?php
+
+                                        ?>
+                                    </div>
+									
+									
+								</div>
+					
+							</div>	
+						</div>
+					</div>
+
+ 
+
+
+
+
+				</div>
+					
+			</div>
+			<div style="height: 50px"></div>
+		</div>
+		<div class="container">
+			<h4>Dòng xe cùng loại</h4><br>
+			<div class="row">
+				<div class="col-md-3">
+					<div class="box-dich-vu">
+						<div>
+							<img src="public/assets/img/xe-31.jpg" class="img-fluid hinh-anh-dich-vu" alt="Responsive image">
+						</div>
+						<div class="infor-dich-vu">
+							<h2>Xe du lịch</h2>
+							<p>Số ghế: 18</p>
+							<p>Giá thuê: 0.000.000đ/ngày</p>
+							<p class="detail"><button type="button" class="hvr-curl-top-left"><a href="">Detail</a></button></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="box-dich-vu">
+						<div>
+							<img src="public/assets/img/xe-32.jpg" class="img-fluid hinh-anh-dich-vu" alt="Responsive image">
+						</div>
+						<div class="infor-dich-vu">
+							<h2>Xe du lịch</h2>
+							<p>Số ghế: 18</p>
+							<p>Giá thuê: 0.000.000đ/ngày</p>
+							<p class="detail"><button type="button" class="hvr-curl-top-left"><a href="">Detail</a></button></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="box-dich-vu">
+						<div>
+							<img src="public/assets/img/xe-33.jpg" class="img-fluid hinh-anh-dich-vu" alt="Responsive image">
+						</div>
+						<div class="infor-dich-vu">
+							<h2>Xe du lịch</h2>
+							<p>Số ghế: 18</p>
+							<p>Giá thuê: 0.000.000đ/ngày</p>
+							<p class="detail"><button type="button" class="hvr-curl-top-left"><a href="">Detail</a></button></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="box-dich-vu">
+						<div>
+							<img src="public/assets/img/xe-34.jpg" class="img-fluid hinh-anh-dich-vu" alt="Responsive image">
+						</div>
+						<div class="infor-dich-vu">
+							<h2>Xe du lịch</h2>
+							<p>Số ghế: 18</p>
+							<p>Giá thuê: 0.000.000đ/ngày</p>
+							<p class="detail"><button type="button" class="hvr-curl-top-left"><a href="">Detail</a></button></p>
+						</div>
+					</div>
+				</div>
+										
+			</div>		
+	</div>

@@ -1,0 +1,200 @@
+<div class="container-fluid" style="background-color: white">
+		<div class="container">
+			<div class="row header">
+                <div class="col-md-2">
+                    <span><?php
+                        if (isset($this->view->LoadOne)) {
+
+                            $link_anh = $this->view->LoadOne['logo'];
+                            $link_ct = "?action=company&id-ct={$this->view->LoadOne['id']}";
+                            echo "<a href = '$link_ct' ><img src = '$link_anh' class='img-fluid' alt = '{$this->view->LoadOne["ten_cong_ty"]}'></a >";
+                        }
+                        ?>
+
+                    </span>
+                </div>
+                <div class="col-md-10 menu-company">
+                    <ul>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=list-item&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Dịch vụ xe </li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=album&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Thư viện</a></li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=news&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Tin tức</a></li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=introduction&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Giới thiệu</a></li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=contact&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Liên hệ</a></li>
+                        <div class="clearfix"></div>
+
+
+
+                    </ul>
+                </div>
+
+			</div>	
+			
+			
+			
+
+
+
+
+
+
+
+
+
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12 box-title-news">
+				<h2>Danh sách xe</h2>
+
+			</div>
+			
+			
+		</div>
+	</div>
+	
+	<div class="container-fluid item">
+		<div class="container"><div style="height: 80px"></div>
+			<div class="row">
+				<div class="col-md-3">
+					<div class="box-danh-muc">
+						<div class="title-danh-muc">
+							<h2>Nhóm danh mục</h2>
+						</div>
+						<div class="list-danh-muc">
+                            <?php
+                            if(isset($this->view->LoadListLoaiXe) && !empty($this->view->LoadListLoaiXe)){
+
+                                foreach ($this->view->LoadListLoaiXe as $row) {
+                                        $link_detail = "?action=list-item&id-ct={$row['id_cong_ty']}&id-lx={$row['loai_xe']}";
+
+                                    echo "<div class='danh-muc' ><a href = '$link_detail' > {$row['ten']} </a ></div >";
+                            }
+                            }
+							?>
+						</div>
+					</div>
+					<form>
+						<div class="box-danh-muc">
+							<div class="title-danh-muc">
+								<h2>Nhà sản xuất</h2>
+							</div>
+							<div class="list-danh-muc">
+                                <?php
+
+                                if (isset($this->view->LoadNSX) && !empty($this->view->LoadNSX)){
+                                    foreach ($this->view->LoadNSX as $row) {
+
+
+                                     echo "<div class='danh-muc' ><a href = '' > {$row['ten_nsx']} </a ></div >";
+								}}
+								?>
+							</div>
+						</div>
+						<div class="box-danh-muc">
+							<div class="title-danh-muc">
+								<h2>Mức giá</h2>
+							</div>
+							<div class="list-danh-muc">
+								<input type="range" min="1" max="100" value="50" class="range-slider">
+								<p id="left">1</p>
+								<p id="right">100</p>
+								<div class="clr"></div>
+								
+								
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-md-9">
+					<div class="row">
+						<div class="col-md-12 order">
+							<select class="form-control">
+								<option>Thuê nhiều nhất</option>
+								<option>Thuê ít nhất</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+                        <?php
+                        if (isset($this->view->LoadLoaiXe) && !empty($this->view->LoadLoaiXe)){
+                            foreach ($this->view->LoadLoaiXe as $row) {
+                               $link_anh = $row['hinh_anh'];
+                               $gia = number_format($row['gia_thue_moi']);
+                               $link_detail = "?action=detail-item&id-ct={$row['id_cong_ty']}&id-xe={$row['id']}";
+
+                             echo "<div class='col-md-4' >
+                                        <div class='box-xe' >
+                                            <div class='hinh-anh-box-xe' >
+                                                <img src = '$link_anh' class='img-fluid' alt = '{$row['ten_xe']}' >
+                                                <div class='status' >
+                                                    <p style = 'color: white' > Đã thuê </p >
+                                                </div >
+                                            </div >
+                                            <div class='' >
+                                                <h2 > {$row['ten_xe']} </h2 >
+                                                <p > {$row['ten_cong_ty']}/{$row['ten']} </p >
+                                                <p > $gia đ / Ngày </p >
+            
+                                                <p class='detail' ><button type = 'button' class='hvr-curl-top-left' ><a href = '$link_detail' > Chi tiết </a ></button ></p >
+                                            </div >
+                                        </div >
+                                    </div >";
+						}}
+						else{
+                            if (isset($this->view->LoadList) && !empty($this->view->LoadList)){
+                                foreach ($this->view->LoadList as $row) {
+                                    $link_anh = $row['hinh_anh'];
+                                    $gia = number_format($row['gia_thue_moi']);
+                                    $link_detail = "?action=detail-item&id-ct={$row['id_cong_ty']}&id-xe={$row['id']}";
+
+                                    echo "<div class='col-md-4' >
+                                        <div class='box-xe' >
+                                            <div class='hinh-anh-box-xe' >
+                                                <img src = '$link_anh' class='img-fluid' alt = '{$row['ten_xe']}' >
+                                                <div class='status' >
+                                                    <p style = 'color: white' > Đã thuê </p >
+                                                </div >
+                                            </div >
+                                            <div class='' >
+                                                <h2 > {$row['ten_xe']} </h2 >
+                                                <p > {$row['ten_cong_ty']}/{$row['ten']} </p >
+                                                <p > $gia đ / Ngày </p >
+            
+                                                <p class='detail' ><button type = 'button' class='hvr-curl-top-left' ><a href = '$link_detail' > Chi tiết </a ></button ></p >
+                                            </div >
+                                        </div >
+                                    </div >";
+                                }}
+
+                        }
+						?>
+
+						<div class="clearfix"></div>
+					</div>
+					<div class="page">
+						<ul>
+							<li class="hvr-overline-reveal"><a href="">1</a></li>
+							<li class="hvr-overline-reveal"><a href="">2</a></li>
+						</ul>
+					</div>
+				</div>
+					
+			</div>
+			<div style="height: 50px"></div>
+		</div>
+	</div>	

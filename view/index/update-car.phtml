@@ -1,0 +1,234 @@
+<?php
+
+?>
+
+
+
+
+
+
+
+<div class="container-fluid" style="background: #f5f5f5">
+
+    <div class="container">
+        <div style="height: 100px"></div>
+        <?php
+        if (isset($this->view->err)){
+
+           foreach ($this->view->err as $row){
+
+            echo "<p style='color: red;text-align: center'>$row</p>";
+
+
+           }
+
+        }
+
+
+
+
+
+
+
+
+
+        ?>
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-8">
+                <div class="update-car">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div style="border:1px solid #ccc;padding: 10px">
+                                    <?php
+                                    if (isset($this->view->LoadOne)) {
+                                        $link_anh = $this->view->LoadOne['hinh_anh'];
+                                        echo "<img src='$link_anh' class='img-fluid' style='max-height: 123px'>";
+                                    }
+
+
+                                    ?>
+                                </div>
+
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" name="ten_xe" multiple="true" value="<?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['ten_xe'];?>">
+                                <input type="file" name="f_upload" value="">
+
+                            </div>
+                            <div class="col-md-6">
+                                <label>Gia thue moi</label>
+                                <input type="text" name="gia_moi" value="<?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['gia_thue_moi'];?>">
+                                <label>Gia thue cu</label>
+                                <input type="text" name="gia_cu" value="<?php if (isset($this->view->LoadOne))
+                                    echo $this->view->LoadOne['gia_thue_cu'];
+                                ?>">
+                                <label>Mau xe</label>
+                                <input type="text" name="mau_xe" value="<?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['mau_xe'];?>">
+                                <label>So ghe</label>
+                                <input type="text" name="so_ghe" value="<?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['so_ghe'];?>">
+                            </div>
+
+
+
+                            <div class="col-md-6">
+                                <label>Doi xe</label><br>
+                                <input type="text" name="doi_xe" value="<?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['doi_xe'];?>">
+                                <label>Loai xe</label>
+                                <select name="loai_xe">
+                                    <?php
+                                    if (isset($this->view->LoadOne))
+                                        echo "<option value='{$this->view->LoadOne['loai_xe']}'>{$this->view->LoadOne['ten']}</option>";
+
+                                    if (isset($this->view->LoaiXe)){
+                                        foreach ($this->view->LoaiXe as $row){
+
+                                            if ($row['id'] == $this->view->LoadOne['loai_xe'])
+                                                continue;
+                                            echo "<option value='{$row['id']}'>{$row['ten']}</option>";
+
+
+
+
+                                        }
+
+
+
+
+                                    }
+
+
+
+
+
+
+                                    ?>
+
+                                </select>
+                                <label>Nha san xuat</label>
+                                <select name="nsx">
+                                    <?php
+                                    if (isset($this->view->LoadOne))
+                                        echo "<option value='{$this->view->LoadOne['id_nsx']}'>{$this->view->LoadOne['ten_nsx']}</option>";
+
+                                    if (isset($this->view->LoadNSX)){
+                                        foreach ($this->view->LoadNSX as $row){
+
+                                            if ($row['id'] == $this->view->LoadOne['id_nsx'])
+                                                continue;
+                                            echo "<option value='{$row['id']}'>{$row['ten_nsx']}</option>";
+
+
+
+
+                                        }
+
+
+
+
+                                    }
+
+
+
+
+
+
+                                    ?>
+                                </select>
+                                <label>Bien so</label>
+                                <input type="text" name="bien_so" value="<?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['bien_so'];?>">
+
+                            </div>
+                            <div  class="col-md-12">
+                                <label>Van toc</label>
+                                <input type="text" name="van_toc" value="<?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['van_toc'];?>">
+
+                            </div>
+                            <div class="col-md-12">
+                                <label>Gioi thieu xe</label>
+                                <textarea name="gioi_thieu_xe" id="editor1" rows="50" cols="180"><?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['gioi_thieu_xe'];?>
+                                </textarea>
+
+
+
+                            </div>
+
+
+
+
+
+                        </div><br>
+                        <p class="detail"><button type="submit" style="padding: 15px;background: white;border:1px solid black;cursor: pointer"><i class="fas fa-edit">Thay đổi</i></button> </p>
+                        <p class="detail"><button type="button" style="padding: 15px;background: white;border:1px solid black;cursor: pointer"><a href="?action=car"><i class="fa fa-backward" aria-hidden="true"> Quay về trang cài đặt</i></a> </button> </p>
+
+
+
+
+
+
+
+
+
+
+
+                    </form>
+
+
+
+
+
+
+
+                </div>
+
+            </div>
+            <div class="col-md-2">
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div style="height: 100px"></div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

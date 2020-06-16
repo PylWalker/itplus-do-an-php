@@ -1,0 +1,155 @@
+<?php
+
+?>
+
+
+
+
+<div class="container-fluid" style="background: #ccc">
+    <div style="height: 100px"></div>
+    <div class="container" >
+        <div class="row">
+            <div class="col-md-2">
+
+
+
+
+
+            </div>
+            <div class="col-md-8" style="background: white">
+                <div class="row" style="margin-top: 10px;margin-bottom: 20px">
+                    <div class="col-md-4">
+                        <div  style="border:0.5px solid #ccc;">
+                            <?php
+                            if (isset($this->view->LoadOne)){
+                                $link_anh = $this->view->LoadOne['logo'];
+
+                                echo "<img src='$link_anh' class='img-fluid'>";
+                            }
+
+
+
+
+
+
+                            ?>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Ten nguoi dai dien: <?php
+
+                            if (isset($this->view->LoadOne)){
+
+
+                                echo $this->view->LoadOne['ten_dai_dien'];
+                            }
+
+
+
+
+
+
+                            ?></p>
+                        <p>So dien thoai: <?php
+
+                            if (isset($this->view->LoadOne)){
+
+
+                                echo $this->view->LoadOne['sdt_nguoi_dai_dien'];
+                            }
+
+
+
+
+
+
+                            ?></p>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button"><a href="?action=edit-ho-so" style="font-size: 20px"><i class="fas fa-edit">Thay doi</i></a></button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php
+                           if (isset($this->view->LoadOne)){
+
+                               echo "<p>Ten cong ty: {$this->view->LoadOne['ten_cong_ty']}</p>";
+                               echo "<p>So dien thoai cong ty: {$this->view->LoadOne['sdt_cong_ty']}</p>";
+                               echo "<p>Email: {$this->view->LoadOne['email']}</p>";
+                               echo "<p>Doi net ve cong ty: {$this->view->LoadOne['gioi_thieu']}</p>";
+                               echo "<p>So lan giao dich thanh cong: {$this->view->LoadOne['so_lan_giao_dich_thanh_cong']}</p>";
+                           }
+
+
+
+
+
+
+                        ?>
+                    </div>
+                 </div>
+
+
+
+
+            </div>
+            <div class="col-md-2">
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div style="height: 100px"></div>
+
+
+</div>
+
+
+
+

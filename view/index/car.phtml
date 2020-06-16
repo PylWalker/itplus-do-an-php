@@ -1,0 +1,89 @@
+<?php
+
+?>
+
+
+
+
+
+<div class="container" style="margin-bottom: 100px;margin-top: 100px">
+    <button type = 'button' style = 'padding: 15px;background: white;border:1px solid white;cursor: pointer;width: 100%;' ><a href = '?action=add-car' style = 'color:violet;font-size: 20px;border: 2px solid violet;padding: 15px;text-decoration: none' ><i class="fa fa-plus-square-o" aria-hidden="true"></i> Thêm xe mới</a ></button >
+    <div style="height: 50px"></div>
+    <div class="row">
+        <?php
+        if (isset($this->view->LoadList) && !empty($this->view->LoadList)){
+            foreach ($this->view->LoadList as $row) {
+                $gia_moi = number_format($row['gia_thue_moi']);
+                if (isset($row['gia_thue_cu']))
+                $gia_cu = number_format($row['gia_thue_cu']);
+                $link_anh = $row['hinh_anh'];
+                $link_detail = "?action=detail-car&id-xe={$row['id']}";
+                $link_update = "?action=update-car&id-xe={$row['id']}";
+                $link_delete = "?action=delete-car&id-xe={$row['id']}";
+
+            echo"<div class='col-md-3' >
+            <div class='quanly-xe' >
+                <div style='height: 131px'>
+                    <img src = '$link_anh' class='img-fluid' >
+                </div>
+                <h2 style = 'color: #b57b12;text-align: center' > {$row['ten_xe']} </h2 >
+                <p style = 'color: #56127d;text-align: center' > $gia_moi </p >
+                <p style = 'color: #ccc;text-align: center' > $gia_cu </p >
+                <div class='row' >
+                    <div class='col-md-3' >
+                        <button type = 'button' style = 'padding: 15px;background: white;border:1px solid white;cursor: pointer;width: 100%' ><a href = '$link_detail' style = 'color: #00aced;font-size: 20px' ><i class='fa fa-info' aria-hidden = 'true' ></i ></a ></button >
+                    </div >
+                    <div class='col-md-3' >
+                        <button type = 'button' style = 'padding: 15px;background: white;border:1px solid white;cursor: pointer;width: 100%' ><a href = '$link_update' style = 'color: #08c869;font-size: 20px' ><i class='fa fa-pencil-square-o' aria-hidden = 'true' ></i ></a ></button >
+                    </div >
+                    <div class='col-md-3' >
+                        <button type = 'button' style = 'padding: 15px;background: white;border:1px solid white;cursor: pointer;width: 100%' ><a href = '$link_delete' style = 'color: red;font-size: 20px' ><i class='fa fa-trash' aria-hidden = 'true' ></i ></a ></button >
+                    </div >
+                    <div class='col-md-3' >
+                        <button type = 'button' style = 'padding: 15px;background: white;border:1px solid white;cursor: pointer;width: 100%' ><a href = '' style = 'color: rgba(197,16,209,0.88);font-size: 20px' ><i class=\"fa fa-picture-o\" aria-hidden=\"true\"></i></a></button >
+                    </div >
+
+
+
+                </div >
+
+
+
+
+
+
+
+
+
+            </div >
+
+        </div >";
+
+        }}
+        ?>
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <p class="detail"><button type="button" style="padding: 15px;background: white;border:1px solid black;cursor: pointer"><a href="?action=profile"><i class="fa fa-backward" aria-hidden="true"> Quay về trang cài đặt</i></a> </button> </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

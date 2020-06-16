@@ -1,0 +1,318 @@
+
+
+
+
+
+
+	<div class="container-fluid" style="background-color: white">
+		<div class="container">
+			<div class="row header">
+				<div class="col-md-2">
+                    <span><?php
+                        if (isset($this->view->LoadOne)) {
+
+                            $link_anh = $this->view->LoadOne['logo'];
+                            $link_ct = "?action=company&id-ct={$this->view->LoadOne['id']}";
+                            echo "<a href = '$link_ct' ><img src = '$link_anh' class='img-fluid' alt = '{$this->view->LoadOne["ten_cong_ty"]}'></a >";
+                        }
+                        ?>
+
+                    </span>
+				</div>
+				<div class="col-md-10 menu-company">
+					<ul>
+						<li class="hover-li"><a href="<?php $link_ct = "?action=list-item&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Dịch vụ xe </li>
+						<li class="hover-li"><a href="<?php $link_ct = "?action=album&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Thư viện</a></li>
+						<li class="hover-li"><a href="<?php $link_ct = "?action=news&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Tin tức</a></li>
+						<li class="hover-li"><a href="<?php $link_ct = "?action=introduction&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Giới thiệu</a></li>
+						<li class="hover-li"><a href="<?php $link_ct = "?action=contact&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Liên hệ</a></li>
+						<div class="clearfix"></div>
+
+
+
+					</ul>
+				</div>
+
+			</div>
+		</div>
+	</div>
+		<div class="container-fluid">	
+			
+			<div class="banner">
+				<div class="row">
+					<div class="col-md-12 image-banner">
+						<!-- Start WOWSlider.com BODY section -->
+							<div id="wowslider-container1">
+							<div class="ws_images"><ul>
+									<li><a href="?action=detail-item"><img src="public/data1/images/banner-company/banner1.jpg" alt="banner1" title="banner1" id="wows1_0"/></a></li>
+									<li><a href="?action=detail-item"><img src="public/data1/images/banner-company/banner2.jpg" alt="banner2" title="banner2" id="wows1_1"/></a></li>
+									<li><a href="?action=detail-item"><img src="public/data1/images/banner-company/banner3.jpg" alt="banner3" title="banner3" id="wows1_2"/></a></li>
+									<li><a href="?action=detail-item"><img src="public/data1/images/banner-company/banner4.jpg" alt="banner4" title="banner4" id="wows1_3"/></a></li>
+									<li><a href="?action=detail-item"><img src="public/data1/images/banner-company/banner5.jpg" alt="banner5" title="banner5" id="wows1_4"/></a></li>
+									<li><a href="?action=detail-item"><img src="public/data1/images/banner-company/banner6.jpg" alt="banner6" title="banner6" id="wows1_5"/></a></li>
+									
+								</ul></div>
+								<div class="ws_bullets"><div>
+									<a href="#" title="banner1"><span><img src="public/data1/tooltips/tooltip-company/banner1.jpg" alt="banner1"/>1</span></a>
+									<a href="#" title="banner2"><span><img src="public/data1/tooltips/tooltip-company/banner2.jpg" alt="banner2"/>2</span></a>
+									<a href="#" title="banner3"><span><img src="public/data1/tooltips/tooltip-company/banner3.jpg" alt="banner3"/>3</span></a>
+									<a href="#" title="banner4"><span><img src="public/data1/tooltips/tooltip-company/banner4.jpg" alt="banner4"/>4</span></a>
+									<a href="#" title="banner5"><span><img src="public/data1/tooltips/tooltip-company/banner5.jpg" alt="banner5"/>5</span></a>
+									<a href="#" title="banner6"><span><img src="public/data1/tooltips/tooltip-company/banner6.jpg" alt="banner6"/>6</span></a>
+									
+								</div></div>
+							<div class="ws_shadow"></div>
+							</div>	
+
+						<!-- End WOWSlider.com BODY section -->
+					</div>
+					
+				</div>
+
+			</div>
+			<div style="height: 80px"></div>
+			<div class="container">
+
+			<div class="content">
+				<div class="row">
+					
+						<div class="col-md-4 line">
+							
+						</div>
+						<div class="col-md-4">
+							<b class="title">Các dòng xe mới</b>
+						</div>
+						<div class="col-md-4 line">
+							
+						</div>
+
+
+
+
+					
+
+				</div><div style="height: 50px"></div>
+				<div class="row">
+                <?php
+                    if (isset($this->view->LoadXeMoi) && !empty($this->view->LoadXeMoi)) {
+                        foreach ($this->view->LoadXeMoi as $row){
+                            $link_anh = $row['hinh_anh'];
+                            $gia = number_format($row['gia_thue_moi']);
+                            $link_detail = "?action=detail-item&id-ct={$row['id_cong_ty']}&id-xe={$row['id']}";
+
+                       echo "<div class='col-md-2 col-xs-6' >
+                                <div class='box-xe-moi' >
+                                    <div class='hinh-anh' >
+                                        <img src = '$link_anh' class='img-fluid hinh-anh' alt = '{$row["ten_xe"]}' >
+                                    </div >
+                                    <div class='infor' >
+                                        <h2>{$row['ten_xe']}</h2>
+                                        <p > Giá thuê:$gia đ</p>
+                                        <p class='detail' ><button type = 'button' class='detail-button' ><a href = '$link_detail' > Detail</a ></button ></p >
+                                    </div >	
+                                </div >
+					        </div >";
+
+					}}
+                    else
+                        echo "<p style='margin-left: 500px'>Chưa có xe mới</p>";
+					?>
+
+
+				</div><div style="height: 100px"></div>
+				<div class="row">
+					
+						<div class="col-md-4 line">
+							
+						</div>
+						<div class="col-md-4">
+							<b class="title">Các loại dịch vụ xe</b>
+						</div>
+						<div class="col-md-4 line">
+							
+						</div>
+
+
+
+
+					
+
+				</div><div style="height: 50px"></div>
+				<div class="row">
+					<div class="container">
+						<ul class="nav nav-tabs" id="myTab" role="tablist">
+							  <li class="col-md-2 nav-item">
+							    <a class="nav-link active tab" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Xe nổi bật</a>
+							  </li>
+							  <li class="col-md-2 nav-item">
+							    <a class="nav-link tab" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Xe thuê nhiều</a>
+							  </li>
+							  
+						</ul>
+						<div class="tab-content" id="myTabContent">
+							  	<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+							  		<div class="row">
+                                        <?php
+                                        if (isset($this->view->LoadXeNoiBat) && !empty($this->view->LoadXeNoiBat)){
+
+                                            foreach ($this->view->LoadXeNoiBat as $row) {
+                                                $link_anh = $row['hinh_anh'];
+                                                $gia = number_format($row['gia_thue_moi']);
+                                                $link_detail = "?action=detail-item&id-ct={$row['id_cong_ty']}&id-xe={$row['id']}";
+
+                                               echo "<div class='col-md-3' >
+                                                        <div class='box-dich-vu' >
+                                                            <div >
+                                                                <img src = '$link_anh' class='img-fluid hinh-anh-dich-vu' alt = '{$row["ten_xe"]}' >
+                                                            </div >
+                                                            <div class='infor-dich-vu' >
+                                                                <h2 > {$row['ten_xe']} </h2 >
+                                                                <p > Số ghế: {$row['so_ghe']} </p >
+                                                                <p > Giá thuê: $gia đ / ngày </p >
+                                                                <p class='detail' ><button type = 'button' class='hvr-curl-top-left' ><a href = '$link_detail' > Detail</a ></button ></p >
+                                                            </div >
+                                                        </div >
+                                                    </div >";
+
+										}}
+                                        else
+                                            echo "<p style='margin-left: 500px'>Chưa có xe nổi bật</p>";
+										?>
+
+									</div>
+									
+							  		<p class="xem-them"><button type="button" class="hvr-grow-shadow"><a href="list-item.html">Xem thêm</a></button></p>
+									
+							</div>
+
+							<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+							  	
+								<div class="row">
+                                    <?php
+
+                                    if (isset($this->view->LoadXeThueNhieu) && !empty($this->view->LoadXeThueNhieu)){
+                                        foreach ($this->view->LoadXeThueNhieu as $row) {
+                                            $link_anh = $row['hinh_anh'];
+                                            $gia = number_format($row['gia_thue_moi']);
+                                            $link_detail = "?action=detail-item&id-ct={$row['id_cong_ty']}&id-xe={$row['id']}";
+
+                                            echo"<div class='col-md-3' >
+                                                    <div class='box-dich-vu' >
+                                                        <div >
+                                                            <img src = '$link_anh' class='img-fluid hinh-anh-dich-vu' alt = '{$row["ten_xe"]}' >
+                                                        </div >
+                                                        <div class='infor-dich-vu' >
+                                                            <h2 > {$row['ten_xe']} </h2 >
+                                                            <p > Số ghế: {$row['so_ghe']} </p >
+                                                            <p > Giá thuê: $gia đ / ngày </p >
+                                                            <p class='detail' ><button type = 'button' class='hvr-curl-top-left' ><a href = '$link_detail' > Detail</a ></button ></p >
+                                                        </div >
+                                                    </div >
+                                                </div >";
+										}}
+                                    else
+                                        echo "<p style='margin-left: 500px'>Chưa có thuê nhiều</p>";
+										?>
+
+                                </div>
+							  	<p class="xem-them"><button type="button" class="hvr-grow-shadow"><a href="list-item.html">Xem thêm</a></button></p>
+							  	
+							</div>
+							
+								
+							
+							
+						</div>
+					
+					</div>	
+				</div>
+				<div style="height: 80px"></div>
+
+				<div class="row">
+					
+						<div class="col-md-4 line">
+							
+						</div>
+						<div class="col-md-4">
+							<b class="title">Bài viết</b>
+						</div>
+						<div class="col-md-4 line">
+							
+						</div>
+
+
+
+
+					
+
+				</div><div style="height: 50px"></div>
+				<div class="row">
+                    <?php
+                    if (isset($this->view->LoadBaiViet) && !empty($this->view->LoadBaiViet)){
+
+                        foreach ($this->view->LoadBaiViet as $row) {
+                            $link_anh = $row['hinh_anh'];
+                            $date = date_create($row['ngay_dang']);
+                            $ngay = date_format($date,"d");
+                            $thang = date_format($date,"m");
+                            $link_detail = "?action=detail-news&id-ct={$row['id_cong_ty']}&id-bv={$row['id']}";
+                            echo "<div class='col-md-3 col-xs-6' >
+                                    <div class='box-tin-tuc' >
+                                        <div >
+                                            <img src = '$link_anh' class='img-fluid hinh-anh-dich-vu' alt = 'bai-viet' >
+                                            <div class='ngay-thang' >
+                                                <p > $ngay </p >
+                                                <p > Tháng $thang </p >
+                                            </div >
+                                        </div >
+                                        <div class='infor-dich-vu' >
+                                            <h2 > {$row['ten_bv']} </h2 >
+                                            <p class='infor-tin-tuc' > 
+                                                {$row['tom_tat']}
+                                            </p >
+                                            
+                                            <p class='detail' ><button type = 'button' class='hvr-curl-top-left' ><a href = '$link_detail' > Detail</a ></button ></p >
+                                        </div >
+                                    </div >
+                                </div >";
+					}
+                    }
+                    else
+                        echo "<p style='margin-left: 500px'>Chưa có bài viết nào</p>";
+					?>
+
+				</div>
+				<div class="clearfix"></div>
+				<p class="xem-them"><button type="button" class="hvr-grow-shadow"><a href="?action=news">Xem thêm</a></button></p>
+				<div style="height: 80px"></div>
+				
+				<div class="row">
+					<div class="col-md-3">
+						<div class="title-comment">Đánh giá công ty</div><br>
+					</div>
+				</div>
+
+
+				<div class="clearfix"></div>
+				<div style="height: 80px"></div>
+
+
+
+
+
+
+
+			</div>		
+
+
+
+
+
+		</div>
+
+
+
+
+	</div>
+
+	

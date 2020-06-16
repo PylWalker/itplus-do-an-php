@@ -1,0 +1,141 @@
+<?php
+  if(isset($_GET['page']))
+  {
+    $currentPage = $_GET['page'];
+    if($currentPage<1)
+      $currentPage = 1;
+      else if($currentPage>$this->view->so_trang)
+        $currentPage = $this->view->so_trang;
+    $prePage = $currentPage-1;
+    $nextPage = $currentPage+1;
+  }
+    else
+    {
+      $currentPage = 1;
+      $prePage = $currentPage-1;
+      $nextPage = $currentPage+1;
+    }
+    $lastPage = $this->view->so_trang;
+
+    echo '<pre>';
+      print_r($_POST);
+    echo '</pre>';
+
+    //unset($_SESSION['search_ten_tinh']);
+
+    if(!isset($_SESSION['search_ten_tinh']))
+    {
+      $_SESSION['search_ten_tinh'] = $_POST['search_ten_tinh'];
+    }
+
+    echo '<pre>';
+      print_r($_SESSION);
+    echo '</pre>';
+?>
+<div>
+  <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+            <div class="box-header">
+
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Danh sách tỉnh </h3>
+            </div>
+            <div class="row">
+              <div class="col-lg-12"> <h3>Tìm kiếm theo </h3> </div>
+            </div>
+
+            <div class="row">
+              <form action="" method="post">
+                  <div class="col-lg-3">
+                    <input type="text" name="search_ten_tinh" class="form-control" placeholder="Tên tỉnh">
+                  </div>
+
+                  <div class="col-lg-1">
+                    <button type="submit" name="search" class="btn btn-block btn-info"> Tìm </button>
+                  </div>
+
+                  <div class="col-lg-2">
+                    <button type="submit" name="reset" class="btn btn-block btn-info">Xóa tìm kiếm</button>
+                  </div>
+
+              </form>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+
+
+              <div class="row" style="padding-top: 20px">
+
+				
+
+                <div class="col-lg-2"> 
+                  <a href="?controller=admin-user&action=themtinh" type="button" class="btn btn-block btn-primary"> Thêm tỉnh </a><br>
+
+                </div>
+                <form action="" method="post">
+                    
+
+
+                </form>
+               </div>
+
+
+              <table id="" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th> ID tỉnh </th>
+                    <th> Tên tỉnh </th>
+                    <th> Sửa </th>
+                    <th> Xóa </th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                foreach($this->view->listTinh as $list){
+                  echo "<tr>
+                    <td>$list->id</td>
+                    <td>$list->ten_tinh</td>
+                    <td><a href='?controller=admin-user&action=suatinh&id=$list->id&currentPage=$currentPage'> Sửa </a></td>
+                    <td><a href='?controller=admin-user&action=xoatinh&id=$list->id&currentPage=$currentPage'> Xóa </a></td>
+                  </tr>";
+                }
+                ?>     
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th> ID tỉnh </th>
+                    <th> Tên tỉnh </th>
+                    <th> Sửa </th>
+                    <th> Xóa </th>
+                </tr>
+                </tfoot>
+              </table>
+
+              <ul class="pagination pagination-sm no-margin pull-right" style="padding-top: 10px">
+                <?php
+                echo "<li><a href='?controller=admin-user&action=quanlytinh&page=1'> Trang đầu </a></li>";
+                if($prePage>0){
+                echo "<li><a href='?controller=admin-user&action=quanlytinh&page=$prePage'>«</a></li>";
+                  echo "<li><a href='?controller=admin-user&action=quanlytinh&page=$prePage'>$prePage</a></li>";
+                }
+                  echo "<li><a href='?controller=admin-user&action=quanlytinh&page=$currentPage'>$currentPage</a></li>";
+                if($nextPage<=$this->view->so_trang){
+                  echo "<li><a href='?controller=admin-user&action=quanlytinh&page=$nextPage'>$nextPage</a></li>";
+                echo "<li><a href='?controller=admin-user&action=quanlytinh&page=$nextPage'>»</a></li>";
+                }
+                echo "<li><a href='?controller=admin-user&action=quanlytinh&page=$lastPage'> Trang cuối </a></li>";
+                ?>
+              </ul>
+
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      <!-- /.row -->
+    </section>
+</div>

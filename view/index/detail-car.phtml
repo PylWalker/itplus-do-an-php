@@ -1,0 +1,98 @@
+<?php
+?>
+
+
+
+
+
+
+<div class="container-fluid" style="background: #f5f5f5">
+    <div class="container">
+    <div style="height: 100px"></div>
+    <div class="row">
+        <div class='col-md-4'></div>
+        <div class='col-md-4'>
+
+            <div style='border: 1px solid #ccc;padding: 10px;margin-bottom: 50px;background: white;border-radius: 5px'>
+            <img src='<?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['hinh_anh']; ?>' class='img-fluid' style='max-height: 300px;display: block;margin: auto'>
+            </div>
+
+
+
+
+
+        </div>
+        <div class='col-md-4'></div>
+        <div class="col-md-6">
+            <div style='border: 1px solid #e6e6e6;box-shadow: 0px 0px 1px 1px #ddd;padding: 15px;background: white;border-radius: 5px;margin-bottom: 50px'>
+                <h2><?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['ten_xe']; ?></h2>
+                <p>Loai xe:<?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['ten']; ?></p>
+                <p>Nha san xuat:<?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['ten_nsx']; ?></p>
+                <p>Mau xe: <?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['mau_xe']; ?></p>
+                <p>So ghe: <?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['so_ghe']; ?></p>
+                <p>van toc: <?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['van_toc']; ?></p>
+                <p>Doi xe: <?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['doi_xe']; ?></p>
+                <p>Bien so: <?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['bien_so']; ?></p>
+                <p>Giá thuê mới: <?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['gia_thue_moi']; ?></p>
+                <p>Giá thuê cũ: <?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['gia_thue_cu']; ?></p>
+                <p>Số lần thuê: <?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['so_lan_thue']; ?></p>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div style='border: 1px solid #e6e6e6;box-shadow: 0px 0px 1px 1px #ddd;padding: 15px;background: white;border-radius: 5px'>
+
+                <p>Ảnh chi tiết:</p>
+
+
+            </div>
+
+        </div>
+
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-8">
+            <div style='border: 1px solid #e6e6e6;box-shadow: 0px 0px 1px 1px #ddd;padding: 15px;background: white;border-radius: 5px'>
+
+                <p>Giới thiệu xe:</p>
+                <?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['gioi_thieu_xe']; ?>
+
+            </div>
+        </div>
+        <div class="col-md-2">
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    </div><br>
+        <p class="detail"><button type="button" style="padding: 15px;background: white;border:1px solid black;cursor: pointer"><a href="?action=car"><i class="fa fa-backward" aria-hidden="true"> Quay về trang o to</i></a> </button> </p>
+    <div style="height: 100px"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>

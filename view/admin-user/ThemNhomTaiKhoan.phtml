@@ -1,0 +1,51 @@
+<div>
+	<section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+            <div class="box-header">
+
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title"> Thêm nhóm tài khoản </h3>
+            </div>
+            <?php
+              if(isset($this->view->res))
+              {
+
+                if(is_numeric($this->view->res)){
+
+                echo "<p style='color: green;'>Thêm nhóm tài khoản thành công. Đang chuyển về trang danh sách </p>";
+                  echo "<meta http-equiv='refresh' content='1;url=?controller=admin-user&action=danhsachnhomtaikhoan'>";
+                }else
+                echo "<p style='color: red;'>Lỗi quá trình thêm mới: {$this->view->res} </p>";
+
+              }
+            ?>
+            <!-- /.box-header -->
+              <form action="" method="post">
+                <div class="box-body">
+                  <div class="form-group">
+                      <label> Tên nhóm </label>
+                      <input type="text" class="form-control" name="ten_nhom" placeholder="Nhập tên nhóm">
+                  </div>
+
+                </div>
+
+<div class="box-footer">
+  <button type="submit" name="them_ntk" class="btn btn-primary"> Thêm nhóm </button>
+</div>
+
+
+
+              </form>
+
+
+
+          </div>
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      <!-- /.row -->
+    </section>
+</div>

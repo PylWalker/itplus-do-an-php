@@ -1,0 +1,103 @@
+<div>
+	<section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+            <div class="box-header">
+
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title"> Sửa tài khoản </h3>
+            </div>
+            <?php
+              if(isset($this->view->res))
+              {
+
+                if(is_numeric($this->view->res)){
+
+                echo "<p style='color: green;'>Sửa tài khoản thành công. Đang chuyển về trang danh sách </p>";
+                  echo "<meta http-equiv='refresh' content='1;url=?controller=admin-user&action=danhsachtaikhoan'>";
+                }else
+                echo "<p style='color: red;'>Lỗi quá trình sửa: {$this->view->res} </p>";
+
+              }
+            ?>
+            <!-- /.box-header -->
+              <form action="" method="post">
+                <div class="box-body">
+                  <div class="row">
+
+                    <div class="col-lg-5">
+                      <div class="form-group">
+                      <label> Tên đăng nhập </label>
+                      <input type="text" value="<?php echo $this->view->userDetail['ten_dang_nhap']; ?>" class="form-control" name="" placeholder="Tên đăng nhập" disabled>
+                  </div>
+
+                  <div class="form-group">
+                      <label> Mật khẩu </label>
+                      <input type="password" value="<?php echo $this->view->userDetail['passwd']; ?>" class="form-control" name="passwd" placeholder="Nhập mật khẩu mới">
+                  </div>
+
+                  <div class="form-group">
+                      <label> Họ tên </label>
+                      <input type="text" value="<?php echo $this->view->userDetail['ho_ten']; ?>" class="form-control" name="ho_ten" placeholder="Nhập họ tên" disabled>
+                  </div>
+
+                  <div class="form-group">
+                      <label> Địa chỉ </label>
+                      <input type="text" value="<?php echo $this->view->userDetail['dia_chi']; ?>"  class="form-control" name="dia_chi" placeholder="Nhập địa chỉ">
+                  </div>
+
+                  <div class="form-group">
+                      <label> Số điện thoại </label>
+                      <input type="text" value="<?php echo $this->view->userDetail['so_dien_thoai']; ?>"  class="form-control" name="so_dien_thoai" placeholder="Nhập số điện thoại">
+                  </div>
+                    </div>
+
+
+                    <div class="col-lg-5">
+                  <div class="form-group">
+                      <label> Email </label>
+                      <input type="text" value="<?php echo $this->view->userDetail['email']; ?>" class="form-control" name="email" placeholder="Nhập email" disabled>
+                  </div>
+
+                  <div class="form-group">
+                      <label> Giới tính (Nam: 0, Nữ: 1) </label>
+                      <select class="form-control" name="gioi_tinh">
+                        <option> 1 </option>
+                        <option> 0 </option>
+                      </select>
+                  </div>
+
+                  <div class="form-group">
+                      <label> Công việc </label>
+                      <input type="text" value="<?php echo $this->view->userDetail['cong_viec']; ?>" class="form-control" name="cong_viec" placeholder="Nhập công việc">
+                  </div>
+
+                  <div class="form-group">
+                      <label> ID nhóm tài khoản </label>
+                      <input type="text" value="<?php echo $this->view->userDetail['nhom_tai_khoan_id']; ?>" class="form-control" name="nhom_tai_khoan_id" placeholder="Nhập ID nhóm tài khoản">
+                  </div>
+
+                </div>
+                </div>
+
+<div class="box-footer">
+  <button type="submit" class="btn btn-primary" name="sua_tai_khoan"> Lưu </button>
+  <button type="reset" class="btn btn-primary" name="reset"> Làm lại </button>
+
+</div>
+
+
+
+              </form>
+
+
+
+          </div>
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      <!-- /.row -->
+    </section>
+</div>

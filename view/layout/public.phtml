@@ -1,0 +1,223 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="public/assets/css/demo-page.css" rel="stylesheet" media="all">
+    <link href="public/assets/css/imagehover.css" rel="stylesheet" media="all">
+    <!-- Start WOWSlider.com HEAD section -->
+    <link rel="stylesheet" type="text/css" href="public/engine1/style.css" />
+    <script type="text/javascript" src="public/engine1/jquery.js"></script>
+    <!-- End WOWSlider.com HEAD section -->
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    
+    
+    
+    <!--     Fonts and icons     -->
+    <link href='https://fonts.googleapis.com/css?family=Cambo|Poppins:400,600' rel='stylesheet' type='text/css'>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="public/assets/css/pe-icon-7-stroke.css" rel="stylesheet">
+
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Montserrat:300,600'>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css'>
+
+    <link rel="stylesheet" href="public/assets/css/style-gallery.css">
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="public/assets/css/select2.min.css">
+
+    <link rel="stylesheet" type="text/css" href="public/assets/css/style-profile.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="public/dist/jquery.simpleGal.js"></script>
+    <script type="text/javascript" src="public/assets/js/ajax.js"></script>
+    <script type="text/javascript" src="public/assets/js/reply.js"></script>
+    <script type="text/javascript" src="public/assets/js/comment.js"></script>
+    <script type="text/javascript" src="ckeditor-cfinder/ckeditor/ckeditor.js"></script>
+    <script src="public/assets/js/select2.min.js"></script>
+    
+    <script>
+      $(document).ready(function () {
+        $('.thumbnails').simpleGal({
+          mainImage: '.custom'
+        });
+      });
+    </script>
+
+    
+</head>
+<body>
+<nav class="navbar firstnav">
+
+    <div class="container">
+        <div class="fnav">
+            <?php
+
+            if (!isset($_SESSION['auth'])){
+
+            echo "<div style='float: left; padding-top: 0px'> Đăng nhập bằng </div>
+
+            <div style='float: left; font-size: 20px; padding-left: 20px'> <a href='' style='color: white'> <i class='fab fa-facebook-square'></i> </a> </div>
+
+            <div style='float: left; font-size: 20px; padding-left: 20px'> <a href='' style='color: white'> <i class='fab fa-twitter'></i> </a> </div>
+
+            <div style='float: left; font-size: 20px;  padding-left: 20px'> <a href='' style='color: white'> <i class='fab fa-google-plus-g'></i> </a> </div>
+
+            <div class='lglo' style='padding-top: 0px;'> <a class='login' href='?action=login' style='border-right: 1px solid white;padding-right: 5px'> Đăng nhập </a>  <a class='login' href='?action=register'> Đăng ký </a> </div>";
+
+            }
+            else{
+
+
+                echo "<div class='setting-profile'>
+                           <i class=\"fa fa-user\" aria-hidden=\"true\"> <a href='?action=profile'> {$_SESSION['auth']->ho_ten} </a></i>
+                           <p id='right' style='padding-left: 5px '><a href='?action=logout'>Logout</a></p>
+                      </div>";
+
+
+            }
+            ?>
+        </div>
+
+    </div>
+</nav>
+<div class="container-fluid" style="border-bottom: 2px solid #e0e0e0;background: white" id="myHeader">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="?page=index"><img src="public/assets/img/logo/GoGo-logo.png" class="img-fluid" alt="Logo" style="width:110px; "></a>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="?action=list-company">Công ty</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?action=list-car">Danh sách xe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?action=list-blog">Tin tức</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?action=introduction2">Giới thiệu</a>
+                    </li>
+                    
+                </ul>
+                <form>
+                    <div class="sshape form-inline my-2 my-lg-0">
+
+                        <input class="search-input" type="text" name="txt_searchbar" placeholder=" Tìm kiếm sản phẩm " onkeyup="livesearch(this.value);"
+                        style="border-top-right-radius: 0px;border-bottom-right-radius: 0px;"></input>
+                        <button class="searchbutton my-2 my-sm-0" type="submit" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;"><i class="fa fa-search"></i></button> <br>
+                        
+                    </div>
+                    <div id="result"></div>
+                </form>
+
+            </div>
+
+        </nav>
+    </div>
+</div>
+<div>
+<?php $this->ShowContent();
+
+		?>
+
+</div>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <p> <span style="font-weight: bold; font-size: 16px"> CHĂM SÓC KHÁCH HÀNG </span> </p>
+                <p> <a href=""> Liên hệ trực tuyến </a> </p>
+                <p> <a href=""> Cẩm nang hướng dẫn </a> </p>
+                <p> <a href=""> Tổng đài hỗ trợ </a></p> <br>
+            </div>
+
+            <div class="col-md-3">
+                <p> <span style="font-weight: bold; font-size: 16px"> VỀ CHÚNG TÔI </span> </p>
+                <p> <a href=""> Giới thiệu </a> </p>
+                <p> <a href=""> Điều khoản </a> </p>
+                <p> <a href=""> Chính sách bảo mật </a></p> <br>
+            </div>
+
+            <div class="col-md-3">
+                <p> <span style="font-weight: bold; font-size: 16px"> THEO DÕI CHÚNG TÔI TRÊN </span> </p>
+                <p> <a href=""> Facebook </a> </p>
+                <p> <a href=""> Twitter </a> </p>
+                <p> <a href=""> Instagram </a></p> <br>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</footer>
+
+
+
+
+<script type="text/javascript" src="public/engine1/wowslider.js"></script>
+<script type="text/javascript" src="public/engine1/script.js"></script>
+<script type="text/javascript" src="public/assets/js/jquery.shorten.1.0.js"></script>
+
+<script type="text/javascript">
+$(".comment").shorten({
+        "showChars" : 80,
+        "moreText"  : "Xem thêm",
+        "lessText"  : "Rút gọn",
+});
+    $(document).ready(function(){
+
+        $('.box-comment').on('click','.reply',function () {
+            $(this).next().find(".reply-content").slideToggle("slow");
+        });
+        // $(".reply").click(function(){
+        //
+        // });
+    });
+    $(document).ready(function(){
+  $(".flip").click(function(){
+    $(this).next().find(".panel").slideToggle("slow");
+  });
+});
+    window.onscroll = function() {myFunction()};
+
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+        } else {
+            header.classList.remove("sticky");
+        }
+    }
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        easing: 'ease-in-out-sine'
+      });
+</script>
+<script>  
+  CKEDITOR.replace( 'editor1' );
+</script>
+</body>
+</html>

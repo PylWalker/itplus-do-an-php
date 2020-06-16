@@ -1,0 +1,398 @@
+
+<div class="container-fluid" style="background-color: white">
+		<div class="container">
+			<div class="row header">
+                <div class="col-md-2">
+                    <span><?php
+                        if (isset($this->view->LoadOne)) {
+
+                            $link_anh = $this->view->LoadOne['logo'];
+                            $link_ct = "?action=company&id-ct={$this->view->LoadOne['id']}";
+                            echo "<a href = '$link_ct' ><img src = '$link_anh' class='img-fluid' alt = '{$this->view->LoadOne["ten_cong_ty"]}'></a >";
+                        }
+                        ?>
+
+                    </span>
+                </div>
+                <div class="col-md-10 menu-company">
+                    <ul>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=list-item&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Dịch vụ xe </li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=album&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Thư viện</a></li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=news&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Tin tức</a></li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=introduction&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Giới thiệu</a></li>
+                        <li class="hover-li"><a href="<?php $link_ct = "?action=contact&id-ct={$_GET['id-ct']}"; echo $link_ct; ?>">Liên hệ</a></li>
+                        <div class="clearfix"></div>
+
+
+
+                    </ul>
+                </div>
+
+			</div>	
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12 box-title-news">
+				<h2>Thư viện </h2>
+
+			</div>
+			
+			
+		</div>
+	
+	<div class="container-fluid">
+		
+			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="box-gallery">
+						<div class="row2">
+
+							<div class="column">
+							
+								<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh1.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh1.jpg">
+	      									<figcaption>Park MinYoung</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh2.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh2.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh3.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh3.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh4.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh4.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh17.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh17.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh18.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh18.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh19.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh19.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh20.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh20.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh9.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh9.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+							</div>
+							<div class="column">
+							
+								<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh5.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh5.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh6.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh6.jpg" >
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh7.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh7.jpg" >
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh8.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh8.jpg" >
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh21.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh21.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh22.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh22.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh23.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh23.jpg" >
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh24.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh24.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh10.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh10.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+							</div>
+							<div class="column">
+							
+								<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh25.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh25.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh26.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh26.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh27.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh27.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh28.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh28.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh29.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh29.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh30.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh30.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh31.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh31.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh32.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh32.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh11.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh11.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+
+							</div>
+							<div class="column">
+							
+								<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh13.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh13.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh14.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh14.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh15.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh15.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh16.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh16.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh34.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh34.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh35.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh35.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh36.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh36.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh37.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh37.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+			      				<div class="aos-item" data-aos="fade-up">
+			        				<a class='gallery-link' href='public/assets/img/gallery/anh12.jpg'>
+    									<figure class='gallery-image'>
+	      									<img src="public/assets/img/gallery/anh12.jpg">
+	      									<figcaption>Photo caption</figcaption>
+    									</figure>
+  									</a>
+			      				</div>
+							</div>
+
+							
+							
+							
+						</div>
+					</div>
+				</div>
+				
+			</div>
+				
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+	<!-- Start JS Gallery -->
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js'></script>
+
+<script  src="public/assets/js/index.js"></script>
+
+<!-- End JS Gallery -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        easing: 'ease-in-out-sine'
+      });
+</script>

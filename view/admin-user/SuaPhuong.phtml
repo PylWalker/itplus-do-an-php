@@ -1,0 +1,55 @@
+<section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+            <div class="box-header">
+
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title"> Sửa phường </h3>
+            </div>
+            <?php
+              if(isset($this->view->res))
+              {
+
+                if(is_numeric($this->view->res)){
+
+                echo "<p style='color: green;'>Sửa phường thành công. Đang chuyển về trang danh sách </p>";
+                  echo "<meta http-equiv='refresh' content='1;url=?controller=admin-user&action=quanlyphuong'>";
+                }else
+                echo "<p style='color: red;'>Lỗi quá trình sửa: {$this->view->res} </p>";
+
+              }
+            ?>
+            <!-- /.box-header -->
+              <form action="" method="post">
+                <div class="box-body">
+                  <div class="row">
+                  <div class="form-group col-lg-2">
+                      <label> Nhập tên phường </label>
+                      <input type="text" value="<?php echo $this->view->phuong['ten_phuong']; ?>" class="form-control" name="ten_phuong" placeholder="Nhập tên phường">
+                  </div>
+
+                  </div>
+
+                </div>
+
+
+
+<div class="box-footer">
+  <button type="submit" name="them_phuong" class="btn btn-primary"> Thêm phường </button>
+</div>
+
+
+
+              </form>
+
+
+
+          </div>
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      <!-- /.row -->
+    </section>
+</div>

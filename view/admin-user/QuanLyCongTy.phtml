@@ -1,0 +1,187 @@
+<?php
+  if(isset($_GET['page']))
+  {
+    $currentPage = $_GET['page'];
+    if($currentPage<1)
+      $currentPage = 1;
+      else if($currentPage>$this->view->so_trang)
+        $currentPage = $this->view->so_trang;
+    $prePage = $currentPage-1;
+    $nextPage = $currentPage+1;
+  }
+    else
+    {
+      $currentPage = 1;
+      $prePage = $currentPage-1;
+      $nextPage = $currentPage+1;
+    }
+    $lastPage = $this->view->so_trang;
+?>
+<div>
+	<section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+            <div class="box-header">
+
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title"> Danh sách công ty </h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+
+              <div class="row">
+                              <div class="col-lg-2">
+                
+                <a href="?controller=admin-user&action=quanlycongty" type="button" class="btn btn-block btn-default btn-lg" > Danh sách công ty </a>
+
+              </div>
+
+
+              </div>
+
+                <div class="row" style="padding-top: 20px"> 
+                    <div class="col-lg-2"> 
+
+                        <a href="?controller=admin-user&action=themcongty" type="button" class="btn btn-block btn-primary"> Thêm công ty </a><br>
+
+                    </div>
+
+                </div>  
+              
+                
+              <!-- <div class="row">
+                <div class="col-lg-12"> <h3>Tìm kiếm theo </h3> </div>
+              </div>
+
+              <div class="row">
+                <form action="" method="post">
+                    <div class="col-lg-1">
+                      <input type="text" class="form-control" name="ten_cong_ty" placeholder="Tên công ty">
+                    </div>
+
+                    <div class="col-lg-1">
+                      <input type="text" class="form-control" name="ten_dai_dien" placeholder="Tên đại diện">
+                    </div>
+
+                    <div class="col-lg-1">
+                      <input type="text" class="form-control" name="sdt_nguoi_dai_dien" placeholder="SĐT người đại diện ">
+                    </div>
+
+                    <div class="col-lg-1">
+                      <input type="text" class="form-control" name="sdt_cong_ty" placeholder="SĐT công ty">
+                    </div>
+
+                    <div class="col-lg-1">
+                      <input type="text" class="form-control" name="id_tai_khoan" placeholder="Tài khoản đại diện">
+                    </div>
+
+                    <div class="col-lg-1">
+                      <input type="text" class="form-control" name="email" placeholder="Email">
+                    </div>
+
+                    <div class="col-lg-1">
+                      <input type="text" class="form-control" name="ten_phuong" placeholder="Phường">
+                    </div>
+
+
+                    <div class="col-lg-1">
+                      <input type="text" class="form-control" name="ten_quan" placeholder="Quận">
+                    </div>
+
+                    <div class="col-lg-1">
+                      <input type="text" class="form-control" name="ten_tinh" placeholder="Tỉnh">
+                    </div>
+
+                    <div class="col-lg-1">
+                      <button type="submit" name="search" class="btn btn-block btn-info"> Tìm </button>
+                      <input type="submit" name="search" value="Tìm">
+                    </div>
+
+                </form>
+              </div> -->
+
+              <table id="" class="table table-bordered table-striped">
+                <thead>
+                <tr style="font-weight: bold;"> 
+                  <td> ID </td>
+                  <td> Tên công ty</td>
+                  <td> Tên đại diện </td>
+                  <td> SĐT người đại diện </td>
+                  <td> SĐT công ty </td>
+                  <td> Tài khoản đại diện </td>
+                  <td> Email </td>
+                  <td> Phường </td>
+                  <td> Quận </td>
+                  <td> Tỉnh </td>
+                  <td> Sửa </td>
+                  <td> Xóa </td>
+                </tr>
+                </thead>
+
+
+                <tbody>
+                <?php
+                foreach($this->view->listCompany as $list){
+                  echo "<tr>
+                    <td>$list->id</td>
+                    <td>$list->ten_cong_ty</td>
+                    <td>$list->ten_dai_dien</td>
+                    <td>$list->sdt_nguoi_dai_dien</td>
+                    <td>$list->sdt_cong_ty</td>
+                    <td>unknown</td>
+                    <td>$list->email</td>
+                    <td>$list->ten_phuong</td>
+                    <td>$list->ten_quan</td>
+                    <td>$list->ten_tinh</td>
+                    <td><a href='?controller=admin-user&action=suacongty&id=$list->id'> Sửa </a></td>
+                    <td><a href='?controller=admin-user&action=xoacongty&id=$list->id'> Xóa </a></td>
+                  </tr>";
+                }
+                ?>
+
+                </tbody>
+                <tfoot>
+                <tr style="font-weight: bold;"> 
+                  <td> ID </td>
+                  <td> Tên công ty</td>
+                  <td> Tên đại diện </td>
+                  <td> SĐT người đại diện </td>
+                  <td> SĐT công ty </td>
+                  <td> Tài khoản đại diện </td>
+                  <td> Email </td>
+                  <td> Phường </td>
+                  <td> Quận </td>
+                  <td> Tỉnh </td>
+                  <td> Sửa </td>
+                  <td> Xóa </td>
+                </tr>
+                </tfoot>
+              </table>
+
+              <ul class="pagination pagination-sm no-margin pull-right" style="padding-top: 10px">
+                <?php
+                echo "<li><a href='?controller=admin-user&action=quanlycongty&page=1'> Trang đầu </a></li>";
+                if($prePage>0){
+                echo "<li><a href='?controller=admin-user&action=quanlycongty&page=$prePage'>«</a></li>";
+                  echo "<li><a href='?controller=admin-user&action=quanlycongty&page=$prePage'>$prePage</a></li>";
+                }
+                  echo "<li><a href='?controller=admin-user&action=quanlycongty&page=$currentPage'>$currentPage</a></li>";
+                if($nextPage<=$this->view->so_trang){
+                  echo "<li><a href='?controller=admin-user&action=quanlycongty&page=$nextPage'>$nextPage</a></li>";
+                echo "<li><a href='?controller=admin-user&action=quanlycongty&page=$nextPage'>»</a></li>";
+                }
+                echo "<li><a href='?controller=admin-user&action=quanlycongty&page=$lastPage'> Trang cuối </a></li>";
+                ?>
+              </ul>
+
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      <!-- /.row -->
+    </section>
+</div>

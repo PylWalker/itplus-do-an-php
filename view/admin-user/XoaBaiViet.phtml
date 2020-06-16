@@ -1,0 +1,24 @@
+<?php
+    if(isset($this->view->res))
+    {
+
+        if(is_numeric($this->view->res)){
+
+            //echo "<p style='color: green;'>Xóa bài viết thành công."." </p>";
+        }else
+            echo "<p style='color: red;'>Lỗi quá trình xóa: {$this->view->res} </p>";
+
+    }
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<br><br>
+	<!-- Quay lại trang danh sách
+	<a href="?controller=admin-user&action=quanlybaiviet">Quay lại</a> -->
+    <meta http-equiv="refresh" content="0;url=?controller=admin-user&action=quanlybaiviet">
+</body>
+</html>

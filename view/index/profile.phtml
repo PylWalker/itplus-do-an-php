@@ -1,0 +1,86 @@
+<?php
+
+?>
+
+
+
+<div class="container">
+    <h1 style="text-align: center"><i class="fa fa-cog" aria-hidden="true"></i> SETTING</h1>
+    <div class="row" style="margin-top: 150px;margin-bottom: 100px">
+        <?php 
+        if ($_SESSION['auth']->nhom_tai_khoan_id == 2) {
+       
+        echo "<div class='col-md-4'>
+            <div class='selection' style='border:2px solid #9166f7'>
+                <a href='?action=order-list' style='color: #9b66f7;'><i class='fa fa-file' aria-hidden='true'></i> Đơn hàng</a>
+            </div>
+
+        </div>
+        <div class='col-md-4'>
+            <div class='selection' style='border:2px solid #32e7f7'>
+                <a href='?action=car' style='color: #32e7f7;'><i class='fa fa-car' aria-hidden='true'></i> Ô tô</a>
+            </div>
+        </div>
+        <div class='col-md-4'>
+            <div class='selection' style='border:2px solid #19f753;'>
+                <a href='?action=bai-viet' style='color: #19f753;'><i class='fa fa-newspaper-o' aria-hidden='true'></i> Bài viết</a>
+            </div>
+        </div>
+        <div class='col-md-4'>
+            <div class='selection' style='border:2px solid #f70e32'>
+                <a href='?action=ho-so' style='color: #f70e32;'><i class='fa fa-address-book' aria-hidden='true'></i> Hồ sơ công ty</a>
+            </div>
+        </div>
+        <div class='col-md-4'>
+            <div class='selection' style='border:2px solid #f77112'>
+                <a href='?action=change-passwd' style='color: #f77112;'><i class='fa fa-key' aria-hidden='true'></i> Đổi mật khẩu</a>
+            </div>
+        </div>
+        <div class='col-md-4'>
+            <div class='selection' style='border:2px solid #3931f7'>
+                <a href='?action=comment-list' style='color: #3931f7;'><i class='fa fa-comment-o' aria-hidden='true'></i> Bình luận</a>
+            </div>
+        </div>";
+        }  
+
+        else{
+
+            echo "<div class='col-md-4'>
+                    <div class='selection' style='border:2px solid #f77112'>
+                        <a href='?action=change-passwd' style='color: #f77112;'><i class='fa fa-key' aria-hidden='true'></i> Đổi mật khẩu</a>
+                    </div>
+                </div>";
+
+
+
+
+
+
+
+
+
+        }
+
+
+        ?>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+</div>

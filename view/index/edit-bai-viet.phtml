@@ -1,0 +1,50 @@
+<?php 
+?>
+
+
+
+
+<div class="container" style="margin-top: 100px;margin-bottom: 100px">
+	<div class="row">
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-4">
+			<div style='background-color: white;padding: 10px;border: 1px solid #ccc'>
+                <?php
+                if (isset($this->view->LoadOne)) {
+                    $link_anh = $this->view->LoadOne['hinh_anh'];
+
+                    echo "<img src = '$link_anh' class='img-fluid'>";
+				    }
+				?>
+			</div>
+		</div>
+		<div class="col-md-4">
+			
+		</div>
+	</div><br>
+	<form action="" method="post" enctype="multipart/form-data">
+		<div class="row">
+			<div class="col-md-12">
+                <label>Ten bai viet</label>
+				<input type="text" name="" placeholder="Tên bài viết" style="width: 100%;margin-bottom: 20px" value="<?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['ten_bv']; ?>">
+			</div>
+			<div class="col-md-12">
+                <label>Tom tat</label>
+				<textarea class="form-control" rows="4"><?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['tom_tat']; ?></textarea>
+			</div>
+			<div class="col-md-12">
+                <label>Hinh anh</label>
+				<input type="file" name="" placeholder="Ảnh đại diện" style="width: 100%;margin-bottom: 20px">
+			</div>
+			<div class="col-md-12">
+                <label>Noi dung</label>
+				<textarea name="text" id="editor1" rows="50" cols="180"><?php if (isset($this->view->LoadOne)) echo $this->view->LoadOne['noi_dung']; ?></textarea>
+				<div style="height: 50px"></div>
+				<p style="text-align:center;"><input type="submit" name="" value="Thay đổi"></p>
+				
+			</div>
+
+		</div>	
+	</form>	
+</div>

@@ -1,0 +1,149 @@
+<?php ?>
+
+
+
+
+
+
+
+<div class="container-fluid" style="position: relative;">
+	<div class="image" style="background-image: url('public/assets/css/img/background14.png');">
+		<div class="image-background">
+			<div class="content-gioithieu">
+				<h2>GOGO</h2>
+				<h5>Dịch vụ cho thuê xe tự lái hàng đầu Việt Nam</h5>
+				<div class="separator line-separator">♦</div>
+				<h5>Trang chủ/Danh sách xe </h5>
+			</div>
+		</div>
+
+
+	</div>
+</div>
+<div class="container-fluid background-white">
+	<div  style="border-bottom:0.5px solid #ddd;box-shadow: 0px 0px 10px 10px #ddd">
+	<div class="container">
+		<div class="row" style="padding: 10px" class="the-label">
+			<div class="col-md-3">
+				<label style="padding: 10px;font-size: 18px; font-weight: 600;color: #232323;">Nhà sản xuất</label>
+				<select multiple="multiple" style="width: 100%" class="form-control the-select2">
+					<option value="">132</option>
+					<option value="">132</option>
+					<option value="">132</option>
+					<option value="">132</option>
+				</select>
+			</div>
+			<div class="col-md-3">
+				<label style="padding: 10px;font-size: 18px; font-weight: 600;color: #232323">Thể loại xe</label>
+				<select multiple="multiple" style="width: 100%" class="form-control the-select2">
+					<option value="">132</option>
+					<option value="">132</option>
+					<option value="">132</option>
+					<option value="">132</option>
+				</select>
+			</div>
+			<div class="col-md-3">
+				<label style="padding: 10px;font-size: 18px; font-weight: 600;color: #232323">Số ghế</label>
+				<select multiple="multiple" style="width: 100%" class="form-control the-select2">
+					<option value="">132</option>
+					<option value="">132</option>
+					<option value="">132</option>
+					<option value="">132</option>
+				</select>
+			</div>
+			<div class="col-md-3">
+				<p style="padding: 30px;"></p>
+				<button type="button" class="search-nang-cao">Tìm kiếm</button>
+			</div>
+		</div>	
+	</div>
+	</div>
+<div>
+<div style="height: 100px;background: #f6f6f6"></div>
+<div class="container-fluid" style="background: #f6f6f6">
+	<div class="container">
+		<div class="row">
+            <?php
+            if (isset($this->view->LoadList) && !empty($this->view->LoadList)){
+
+                foreach ($this->view->LoadList as $row){
+
+                    $link_anh = $row['hinh_anh'];
+                    $detail = "?action=detail-item&id-ct={$row['id_cong_ty']}&id-xe={$row['id']}";
+                    $date = date_create($row['ngay_them']);
+                    $newdt = date_format($date,"d/m/Y");
+
+                    echo "<div class='col-md-4'>
+                            <div class='box-list-car' style='margin-bottom: 30px'>
+                                <img src='$link_anh' class='img-fluid'>
+                                <p>{$row['ten_nsx']}</p>
+                                <h3 style='    text-overflow: ellipsis;overflow: hidden;white-space: nowrap;'>{$row['ten_xe']}</h3>
+                                <p><i class='fa fa-cog' aria-hidden='true'></i> {$row['mau_xe']} <span><i class='fa fa-user-o' aria-hidden='true'></i> {$row['so_ghe']} </span><span><i class='fa fa-tachometer' aria-hidden='true'></i> {$row['van_toc']} </span><span><i class='fa fa-car' aria-hidden='true'></i> {$row['doi_xe']}</span></p>
+                                <div style='border-top:0.5px solid #ccc;padding: 10px'>
+                                    <div class='row'>
+                                        <div class='col-md-7 col-8'>
+                                            <p style='line-height: 10px;margin-top: 3px;'><i class='fa fa-calendar' aria-hidden='true'></i> $newdt</p>
+                                        </div>
+                                        <div class='col-md-5 col-4'>
+                                            
+                                                <div class='nut-bam-detail'><a href='$detail'>Detail</a></div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>";
+                }}
+			?>
+
+		</div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <?php
+                $url = '?';
+
+                foreach($_GET as $p_name =>$p_val){
+                    if($p_name =='trang') continue;
+
+                    if($url != '?') $url.= '&';
+
+                    $url .= $p_name.'='.$p_val;
+
+                }
+
+
+                for($i = 1; $i<= $this->view->tong_so_trang; $i++){
+                    $link_page = $url .'&trang='.$i;
+
+
+                    echo '<li class="page-item"><a href="'.$link_page.'" class="page-link">'.$i.'</a></li>';
+
+
+                }
+                ?>
+            </ul>
+        </nav>
+
+	</div>
+    <div style="height: 100px;background: #f6f6f6"></div>
+</div>
+
+<div style="height: 100px;background: #f6f6f6"></div>
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    $('.the-select2').select2({
+
+    
+});
+
+</script>

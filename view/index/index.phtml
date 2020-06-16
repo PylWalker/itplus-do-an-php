@@ -1,0 +1,614 @@
+<?php
+
+
+
+
+?>
+
+
+
+<style type="text/css">
+    .nav-tabs .nav-link.active {
+    color: #495057;
+    background-color: #fff;
+    border-top: 1px solid black;
+    border-color:none;
+
+}
+.nav-item:hover{
+    color: blue;
+
+}
+.nav-item{
+    font-size: 14px;
+}
+</style>
+<div class="container-fluid">
+    <div class="banner">
+        <div class="row">
+            <div class="col-md-12 image-banner">
+                <!-- Start WOWSlider.com BODY section -->
+                
+                    <div id="wowslider-container1">
+                        <div class="ws_images"><ul><?php
+                                if (isset($this->view->LoadListBannerIndex)){
+
+                                    foreach ($this->view->LoadListBannerIndex as $row) {
+                                            $link_anh = $row['link_banner'];
+                                            $title = $row['title'];
+
+
+                                        echo "<li><a href=''><img src ='$link_anh' alt = '' title = '$title' /></a></li >";
+
+
+                            }
+                                }
+                            ?>
+                        </ul></div>
+                        <div class="ws_bullets"><div><?php
+                                if (isset($this->view->LoadListBannerIndex)){
+
+                                    foreach ($this->view->LoadListBannerIndex as $row) {
+                                            $link_anh = $row['link_banner_small'];
+                                            $title = $row['title'];
+                                        echo "<a href = '#' title = '$title' ><span ><img src = '$link_anh' alt = '$title' /></span ></a >";
+
+                            }}
+                            ?>
+                        </div></div>
+                    <div class="ws_shadow"></div>
+                    </div>  
+
+                <!-- End WOWSlider.com BODY section -->
+            </div>
+
+        </div>
+    </div><div style="height: 80px;"></div>
+<div class="container-fluid">
+    <div class="container">
+        <div class="our-service">
+            <h2>Doanh nghiệp tiêu biểu</h2>
+            <div class="separator separator-danger">✻</div>
+            <p>Đây là một số những doanh nghiệp có thành tích tiêu biểu trong tuần vừa qua do người tiêu dùng bình chọn</p>
+        </div>
+        <div class="row" style="margin-top: 40px;margin-bottom: 70px">
+                <?php 
+                if (isset($this->view->LoadListCompany) && !empty($this->view->LoadListCompany)) {
+                    foreach ($this->view->LoadListCompany as $row) {
+                        $link_anh = $row['logo'];
+                        $detail = "?action=company&id-ct={$row['id']}";
+                       
+                    echo"<div class='col-md-3'>
+                        <div class='dntb-index'>
+                            <a href='$detail'><img src='$link_anh' class='img-fluid'></a>
+                        </div>
+                    </div>";
+                }}
+                ?>
+        </div>
+    </div>
+</div>
+
+    <div style="height: 80px"></div>
+    <div class="container-fluid" style="background-color: #151f20;color: white;position: relative;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <h2 data-aos="fade-right" style="padding:20px;text-align: center;color: #fff;font-size: 2.5em;">Các dòng xe</h2>
+                    <div class="separator separator-danger">✻</div>
+                    <p style="text-align: center;">Tại đây chúng tôi có nhiều mẫu xe với đa dạng hình dáng</p>
+                </div>
+                <div class="col-md-4"></div>
+
+            </div>
+            <div id="slideshow" style="text-align: center">
+                <div id="div" class="mySlides">
+                    <h4 style="padding: 20px;font-size: 1.3rem">Xe Du Lịch</h4>
+                    <div class="row">
+                        <?php
+                        if (isset($this->view->LoadXeDuLich) && !empty($this->view->LoadXeDuLich)) {
+
+                            for ($i=0;$i<2;$i++){
+
+                                $link_anh = $this->view->LoadXeDuLich[$i]['hinh_anh'];
+                                $detail = "?action=detail-item&id-ct={$this->view->LoadXeDuLich[$i]['id_cong_ty']}&id-xe={$this->view->LoadXeDuLich[$i]['id']}";
+
+                            echo "<div class='col-md-6'>
+                                    <div style = 'padding: 10px' class='the-loai-xe' >
+                                        <a href='$detail'><img src = '$link_anh' class='img-fluid' ></a>
+                                    </div >
+        
+                                </div>";
+
+                        }}
+                        ?>
+
+
+                    </div>
+
+                    <div class="row">
+                        <?php
+                        if (isset($this->view->LoadXeDuLich) && !empty($this->view->LoadXeDuLich)){
+                            $count = count($this->view->LoadXeDuLich);
+                            for ($i=2;$i<$count;$i++){
+                                $link_anh = $this->view->LoadXeDuLich[$i]['hinh_anh'];
+                                $detail = "?action=detail-item&id-ct={$this->view->LoadXeDuLich[$i]['id_cong_ty']}&id-xe={$this->view->LoadXeDuLich[$i]['id']}";
+                        echo"<div class='col-md-2'>
+                                <div style='padding: 10px' class='the-loai-xe2'>
+                                    <a href='$detail'><img src = '$link_anh' class='img-fluid'></a>
+                                </div>
+                            </div>";
+                            }}
+                        ?>
+
+                    </div>
+                </div>
+                <div id="div" class="mySlides">
+                    <h4 style="padding: 20px;font-size: 1.3rem">Xe Cưới Hỏi</h4>
+                    <div class="row">
+                        <?php
+                        if (isset($this->view->LoadXeCuoiHoi) && !empty($this->view->LoadXeCuoiHoi)) {
+
+                            for ($i=0;$i<2;$i++){
+
+                                $link_anh = $this->view->LoadXeCuoiHoi[$i]['hinh_anh'];
+                                $detail = "?action=detail-item&id-ct={$this->view->LoadXeCuoiHoi[$i]['id_cong_ty']}&id-xe={$this->view->LoadXeCuoiHoi[$i]['id']}";
+
+                                echo "<div class='col-md-6'>
+                                    <div style = 'padding: 10px' class='the-loai-xe' >
+                                        <a href='$detail'><img src = '$link_anh' class='img-fluid' ></a>
+                                    </div >
+        
+                                </div>";
+
+                            }}
+                        ?>
+
+
+                    </div>
+
+                    <div class="row">
+                        <?php
+                        if (isset($this->view->LoadXeCuoiHoi) && !empty($this->view->LoadXeCuoiHoi)){
+                            $count = count($this->view->LoadXeCuoiHoi);
+                            for ($i=2;$i<$count;$i++){
+                                $link_anh = $this->view->LoadXeCuoiHoi[$i]['hinh_anh'];
+                                $detail = "?action=detail-item&id-ct={$this->view->LoadXeCuoiHoi[$i]['id_cong_ty']}&id-xe={$this->view->LoadXeCuoiHoi[$i]['id']}";
+                                echo"<div class='col-md-2'>
+                                <div style='padding: 10px' class='the-loai-xe2'>
+                                    <a href='$detail'><img src = '$link_anh' class='img-fluid'></a>
+                                </div>
+                            </div>";
+                            }}
+                        ?>
+
+                    </div>
+                </div>
+                <div id="div" class="mySlides">
+                    <h4 style="padding: 20px;font-size: 1.3rem">Xe Lễ Hội</h4>
+                    <div class="row">
+                        <?php
+                        if (isset($this->view->LoadXeLeHoi) && !empty($this->view->LoadXeLeHoi)) {
+
+                            for ($i=0;$i<2;$i++){
+
+                                $link_anh = $this->view->LoadXeLeHoi[$i]['hinh_anh'];
+                                $detail = "?action=detail-item&id-ct={$this->view->LoadXeLeHoi[$i]['id_cong_ty']}&id-xe={$this->view->LoadXeLeHoi[$i]['id']}";
+
+                                echo "<div class='col-md-6'>
+                                    <div style = 'padding: 10px' class='the-loai-xe' >
+                                        <a href='$detail'><img src = '$link_anh' class='img-fluid' ></a>
+                                    </div >
+        
+                                </div>";
+
+                            }}
+                        ?>
+
+
+                    </div>
+
+                    <div class="row">
+                        <?php
+                        if (isset($this->view->LoadXeLeHoi) && !empty($this->view->LoadXeLeHoi)){
+                            $count = count($this->view->LoadXeLeHoi);
+                            for ($i=2;$i<$count;$i++){
+                                $link_anh = $this->view->LoadXeLeHoi[$i]['hinh_anh'];
+                                $detail = "?action=detail-item&id-ct={$this->view->LoadXeLeHoi[$i]['id_cong_ty']}&id-xe={$this->view->LoadXeLeHoi[$i]['id']}";
+                                echo"<div class='col-md-2'>
+                                <div style='padding: 10px' class='the-loai-xe2'>
+                                    <a href='$detail'><img src = '$link_anh' class='img-fluid'></a>
+                                </div>
+                            </div>";
+                            }}
+                        ?>
+
+                    </div>
+                </div>
+                <div id="div" class="mySlides">
+                    <h4 style="padding: 20px;font-size: 1.3rem">Xe Bán Tải</h4>
+                    <div class="row">
+                        <?php
+                        if (isset($this->view->LoadXeBanTai) && !empty($this->view->LoadXeBanTai)) {
+
+                            for ($i=0;$i<2;$i++){
+
+                                $link_anh = $this->view->LoadXeBanTai[$i]['hinh_anh'];
+                                $detail = "?action=detail-item&id-ct={$this->view->LoadXeBanTai[$i]['id_cong_ty']}&id-xe={$this->view->LoadXeBanTai[$i]['id']}";
+
+                                echo "<div class='col-md-6'>
+                                    <div style = 'padding: 10px' class='the-loai-xe' >
+                                        <a href='$detail'><img src = '$link_anh' class='img-fluid' ></a>
+                                    </div >
+        
+                                </div>";
+
+                            }}
+                        ?>
+
+
+                    </div>
+
+                    <div class="row">
+                        <?php
+                        if (isset($this->view->LoadXeBanTai) && !empty($this->view->LoadXeBanTai)){
+                            $count = count($this->view->LoadXeBanTai);
+                            for ($i=2;$i<$count;$i++){
+                                $link_anh = $this->view->LoadXeBanTai[$i]['hinh_anh'];
+                                $detail = "?action=detail-item&id-ct={$this->view->LoadXeBanTai[$i]['id_cong_ty']}&id-xe={$this->view->LoadXeBanTai[$i]['id']}";
+                                echo"<div class='col-md-2'>
+                                <div style='padding: 10px' class='the-loai-xe2'>
+                                    <a href='$detail'><img src = '$link_anh' class='img-fluid'></a>
+                                </div>
+                            </div>";
+                            }}
+                        ?>
+
+                    </div>
+                </div>
+                <button class="w3-button w3-black w3-display-left left-button" onclick="plusDivs(-1)">&#10094;</button>
+                <button class="w3-button w3-black w3-display-right right-button" onclick="plusDivs(1)">&#10095;</button>
+
+                
+                
+            </div>
+            <div style="height: 80px"></div>
+
+
+
+        </div>
+        
+
+
+
+    </div>
+    <div style="height: 80px"></div>
+    <div class="container">
+        <div class="row" style="margin-bottom: 50px">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <h2 data-aos="fade-right" style="text-align: center;">Xe nổi bật</h2>
+                <div class="separator separator-danger" data-aos="fade-right">✻</div>
+                
+            </div>
+            <div class="col-md-6"></div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6" data-aos="fade-right">
+                <video width="100%" controls>
+                    <source src="public/assets/video/video4.mp4" type="video/mp4">
+                 </video>
+            </div>
+            <div class="col-md-6">
+                <div class="row" style="height: 50%">
+                    <?php
+                        if (isset($this->view->LoadListXeIndex)){
+                            foreach ($this->view->LoadListXeIndex as $row) {
+                                $detail = "?action=detail-item&id-ct={$row['id_cong_ty']}&id-xe={$row['id']}";
+                                $link_anh = $row['hinh_anh'];
+                                $gia = number_format($row['gia_thue_moi']);
+
+                     echo "<div class='col-md-4 box-xe-index' data-aos = 'fade-left' data-aos-easing = 'ease-out-cubic' data-aos-duration = '500' >
+                        <div class='imghvr-push-up' >
+                            <img src = '$link_anh' class='img-fluid' alt = '{$row["ten_xe"]}' >
+                            <p class='ten-xe-index' > {$row['ten_xe']} </p >
+                        
+                            <figcaption >
+                                <p class='the-p' > $gia </p >
+                                <p class='the-p' > Số ghế:{$row['so_ghe']} </p >
+                                <button type = 'button' class='chi-tiet-button' ><a href = '$detail' > Xem chi tiết </a ></button >
+                            </figcaption >
+                        </div >
+                     </div >";
+                     }}
+                        ?>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height: 80px"></div>
+    <div class="container-fluid" style="background-color: #EEEEEE;">
+        <div class="container">
+            <div style="height: 80px"></div>
+            <div class="row" style="margin-bottom: 50px;">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <h2 data-aos="fade-right" style="padding:20px;text-align: center;font-size: 2.5em;" class="title-bvm">Bài viết mới</h2>
+                    <div class="separator separator-danger" data-aos="fade-right">✻</div>
+                </div>
+                <div class="col-md-4"></div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                        <div class="row2">
+
+                            <div class="column2">
+                                <?php
+
+                                if (isset($this->view->LoadBVM) && !empty($this->view->LoadBVM)){
+
+                                    for ($i=0;$i<3;$i++){
+                                        $link_anh = $this->view->LoadBVM[$i]['hinh_anh'];
+                                        $date = date_create($this->view->LoadBVM[$i]['ngay_dang']);
+                                        $newdate = date_format($date,"d/m/Y");
+                                        $detail = "?action=detail-news&id-ct={$this->view->LoadBVM[$i]['id_cong_ty']}&id-bv={$this->view->LoadBVM[$i]['id']}";
+
+                                echo "<div class='aos-item' data-aos='fade-up'>
+                                        <a href='$detail' style='text-decoration: none'>                
+                                        <div class='box-bai-viet-moi'>
+                                            <img src='$link_anh' class='img-fluid'>
+                                            <h2>{$this->view->LoadBVM[$i]['ten_bv']}</h2>
+                                            
+                                            <div class='row'>
+                                                <div class='col-md-4'>
+                                                    <i class='fa fa-eye' aria-hidden='true'></i>
+                                                </div>
+                                                <div class='col-md-4'>
+                                                    <i class='fa fa-calendar' aria-hidden='true'></i>
+                                                </div>
+                                                <div class='col-md-4'>
+                                                    <i class='fa fa-user' aria-hidden='true'></i>
+                                                </div>
+                                            </div>
+                                            <div class='row'>
+                                                <div class='col-md-4'>
+                                                    <p>{$this->view->LoadBVM[$i]['luot_xem']}</p>
+                                                </div>
+                                                <div class='col-md-4'>
+                                                    <p>$newdate</p>
+                                                </div>
+                                                <div class='col-md-4'>
+                                                    <p>{$this->view->LoadBVM[$i]['ho_ten']}</p>
+                                                </div>
+                                            </div>
+                                            <div class='row'>
+                                                <div class='col-md-2'>
+                                                </div>
+                                                <div class='col-md-8'>
+                                                    <p>{$this->view->LoadBVM[$i]['tom_tat']}</p>
+                                                </div>
+                                                <div class='col-md-2'>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </a>
+
+                                    </div>";
+                                    }}
+                                ?>
+                                
+                             
+                            </div>
+                            <div class="column2">
+
+                                <?php
+
+                                if (isset($this->view->LoadBVM) && !empty($this->view->LoadBVM)){
+
+                                    for ($i=3;$i<6;$i++){
+                                        $link_anh = $this->view->LoadBVM[$i]['hinh_anh'];
+                                        $date = date_create($this->view->LoadBVM[$i]['ngay_dang']);
+                                        $newdate = date_format($date,"d/m/Y");
+                                        $detail = "?action=detail-news&id-ct={$this->view->LoadBVM[$i]['id_cong_ty']}&id-bv={$this->view->LoadBVM[$i]['id']}";
+
+
+                                        echo "<div class='aos-item' data-aos='fade-up'>
+                                         <a href='$detail' style='text-decoration: none'>           
+                                        <div class='box-bai-viet-moi'>
+                                            <img src='$link_anh' class='img-fluid'>
+                                            <h2>{$this->view->LoadBVM[$i]['ten_bv']}</h2>
+                                            <div class='row'>
+                                                <div class='col-md-4'>
+                                                    <i class='fa fa-eye' aria-hidden='true'></i>
+                                                </div>
+                                                <div class='col-md-4'>
+                                                    <i class='fa fa-calendar' aria-hidden='true'></i>
+                                                </div>
+                                                <div class='col-md-4'>
+                                                    <i class='fa fa-user' aria-hidden='true'></i>
+                                                </div>
+                                            </div>
+                                            <div class='row'>
+                                                <div class='col-md-4'>
+                                                    <p>{$this->view->LoadBVM[$i]['luot_xem']}</p>
+                                                </div>
+                                                <div class='col-md-4'>
+                                                    <p>$newdate</p>
+                                                </div>
+                                                <div class='col-md-4'>
+                                                    <p>{$this->view->LoadBVM[$i]['ho_ten']}</p>
+                                                </div>
+                                            </div>
+                                            <div class='row'>
+                                                <div class='col-md-2'>
+                                                </div>
+                                                <div class='col-md-8'>
+                                                    <p>{$this->view->LoadBVM[$i]['tom_tat']}</p>
+                                                </div>
+                                                <div class='col-md-2'>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </a>
+
+                                    </div>";
+                                    }}
+                                ?>
+                                
+                            </div>
+                            <div class="column2">
+
+                                <?php
+
+                                if (isset($this->view->LoadBVM) && !empty($this->view->LoadBVM)){
+
+                                    for ($i=6;$i<9;$i++){
+                                        $link_anh = $this->view->LoadBVM[$i]['hinh_anh'];
+                                        $date = date_create($this->view->LoadBVM[$i]['ngay_dang']);
+                                        $newdate = date_format($date,"d/m/Y");
+                                        $detail = "?action=detail-news&id-ct={$this->view->LoadBVM[$i]['id_cong_ty']}&id-bv={$this->view->LoadBVM[$i]['id']}";
+
+
+                                        echo "<div class='aos-item' data-aos='fade-up'>
+                                        <a href='$detail' style='text-decoration: none'>
+                                        <div class='box-bai-viet-moi'>
+                                            <img src='$link_anh' class='img-fluid'>
+                                            <h2>{$this->view->LoadBVM[$i]['ten_bv']}</h2>
+                                            <div class='row'>
+                                                <div class='col-md-4'>
+                                                    <i class='fa fa-eye' aria-hidden='true'></i>
+                                                </div>
+                                                <div class='col-md-4'>
+                                                    <i class='fa fa-calendar' aria-hidden='true'></i>
+                                                </div>
+                                                <div class='col-md-4'>
+                                                    <i class='fa fa-user' aria-hidden='true'></i>
+                                                </div>
+                                            </div>
+                                            <div class='row'>
+                                                <div class='col-md-4'>
+                                                    <p>{$this->view->LoadBVM[$i]['luot_xem']}</p>
+                                                </div>
+                                                <div class='col-md-4'>
+                                                    <p>$newdate</p>
+                                                </div>
+                                                <div class='col-md-4'>
+                                                    <p>{$this->view->LoadBVM[$i]['ho_ten']}</p>
+                                                </div>
+                                            </div>
+                                            <div class='row'>
+                                                <div class='col-md-2'>
+                                                </div>
+                                                <div class='col-md-8'>
+                                                    <p>{$this->view->LoadBVM[$i]['tom_tat']}</p>
+                                                </div>
+                                                <div class='col-md-2'>
+                                                </div>
+                                            </div>
+                                        </div>
+                                         </a>   
+                                    </div>";
+                                    }}
+                                ?>
+                                
+
+                            </div>
+                            
+
+                            
+                            
+                            
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <div style="height: 80px"></div>
+
+
+
+        </div>
+    </div>
+    <div style="height: 80px"></div>
+    
+    <div class="container background-white">
+        <div class="row" style="margin-bottom: 50px">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <h2 data-aos="fade-right" style="text-align: center;">Bài viết nổi bật</h2>
+                <div class="separator separator-danger" data-aos="fade-right">✻</div>
+            </div>
+            <div class="col-md-4"></div>
+
+        </div>
+        <div class="row">
+            <?php
+
+            if (isset($this->view->LoadListBaiVietIndex)){
+                foreach ($this->view->LoadListBaiVietIndex as $row) {
+                        $link_anh = $row['hinh_anh'];
+                        $detail = "?action=detail-news&id-ct={$row['id_cong_ty']}&id-bv={$row['id']}";
+                    echo "<div class='col-md-12 can-duoi' data-aos = 'fade-up' >
+                            <div class='row' >
+                                <div class='col-md-5' >
+                                    <img src = '$link_anh' class='img-fluid' alt = '{$row["ten_bv"]}' >
+                                </div >
+                                <div class='col-md-7' class='hidden' >
+                                    <h5 class='ten_bv'> {$row['ten_bv']} </h5 >
+                                    <p class='infor-index' >{$row['noi_dung']}</p >
+                                    <button type = 'button' class='hvr-grow-shadow' style = 'width: 100px;text-align:center;' ><a href = '$detail' > Detail</a ></button >
+                                </div >
+                            </div >
+                        </div >";
+
+            }}
+            ?>
+
+
+
+        </div>
+        <div class="row">
+            <div class="col-md-10"></div>
+            <div class="col-md-2">
+                <p style="text-align:right;"><button type="button" class="hvr-grow-shadow"><a href="list-item.html">Xem thêm</a></button></p>
+            </div>
+        </div>
+
+
+    </div>
+    <div style="height: 80px"></div>
+
+</div>
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+     
+
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+</script>

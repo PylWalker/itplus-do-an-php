@@ -1,0 +1,45 @@
+<?php
+?>
+
+<div class="container-fluid">
+    <h1 style="text-align: center"> Các doanh nghiệp </h1>
+
+    <div class="container" style="padding-bottom:20px">
+
+        <div class="row" style="padding-top: 10px">
+            <?php
+
+            if (isset($this->view->LoadList)){
+                foreach ($this->view->LoadList as $row) {
+                    $link_anh = $row['logo'];
+                    $link_cty = "?action=company&id-ct={$row['id']}";
+
+                echo "<div class='col-md-3 col-sm-6 col-xs-12' style = 'padding-top: 10px;' >
+                        <div class='background-white'>
+                            <a href = '$link_cty' class='linkdn'>
+                                <div class='dntieubieu' >
+                                   <img src = '$link_anh' class='img-fluid' alt='{$row["ten_cong_ty"]}'>
+                                   <p>{$row['ten_cong_ty']}</p>
+                                </div >
+                            </a >
+                            
+                        </div>
+
+                       </div >";
+
+            }}
+
+            ?>
+
+
+
+
+
+
+        </div>
+
+
+    </div>
+
+</div>
+

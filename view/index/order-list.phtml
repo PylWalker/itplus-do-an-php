@@ -1,0 +1,92 @@
+<?php
+
+
+?>
+
+<div class="container" style="margin-top: 100px">
+    <h2>Danh sách đơn đặt thuê</h2>
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <form action="" method="get">
+                <input type="hidden" name="action" value="order-list">
+                <input type="search" name="q" placeholder="Tìm kiếm theo xe">
+                <select name="" class="add-new">
+                    <option value="0">Theo ID</option>
+                    <option value="1">Theo ngày</option>
+                    <option value="2">Theo trạng thái</option>
+                    <option value="2">Theo xe</option>
+                    <option value="2">Theo người thuê</option>
+                </select>
+                <button type="submit" class="add-new" style="background: white"><a href=""><i class="fa fa-search" aria-hidden="true"></i></a></button>
+            </form>
+        </div>
+
+            <div class="col-md-6 col-sm-6">
+
+                <button type="button" class="add-new"><a href=""><i class="fa fa-spinner" aria-hidden="true"></i> Cập nhật</a></button>
+                <select name="" class="add-new">
+                    <option value="0">Sắp xếp theo ngày gần nhất</option>
+                    <option value="1">Sắp xếp theo ngày xa nhất</option>
+                </select>
+            </div>
+    </div>
+    <table class="table table-hover table-dark" id="">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Ngày gửi</th>
+            <th scope="col">Nội dung</th>
+            <th scope="col">Trạng thái</th>
+            <th scope="col">Xe cần thuê</th>
+            <th scope="col">Người gửi yêu cầu</th>
+            <th scope="col">Xóa</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+        if (isset($this->view->LoadListOrder) && !empty($this->view->LoadListOrder)){
+            foreach ($this->view->LoadListOrder as $row){
+                $noi_dung = substr($row['noi_dung'],0,50);
+                $detail = "?action=detail-order&id-order={$row['id']}";
+                $delete = "?action=delete-order&id-order={$row['id']}";
+                if ($row['trang_thai']==0)
+                    $trang_thai = 'Chưa xác nhận';
+                else
+                    $trang_thai = 'Đã xác nhận';
+
+                $date = date_create($row['ngay_gui']);
+                $new_date = date_format($date,"d/m/Y");
+
+                echo "<tr>
+                    
+                    <th scope='row'><a href='$detail'>{$row['id']}</a></th>
+                    <td>$new_date</td>
+                    <td>$noi_dung</td>
+                    <td>$trang_thai</td>
+
+                    <td>{$row['ten_xe']}</td>
+                    <td>{$row['ho_ten']}</td>
+                    <td><a href='$delete' class='delete-hover'><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></a></td>
+                    
+                </tr>";
+            }}
+        ?>
+
+
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

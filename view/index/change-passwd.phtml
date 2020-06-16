@@ -1,0 +1,91 @@
+<?php
+
+?>
+
+
+
+
+
+
+<div class="container-fluid" style="background: white">
+    <div style="height: 100px"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+
+            </div>
+
+            <div class="col-md-4" style="background: white;border: 1px solid #e6e6e6;box-shadow: 0px 0px 1px 1px #ddd;border-radius: 5px">
+                <h2 style="padding: 15px;text-align: center;color: #709fd4">ĐỔI MẬT KHẨU</h2><br>
+                <?php
+
+                    if (isset($this->view->err) && !empty($this->view->err)){
+                        foreach ($this->view->err as $row){
+
+                            echo "<p style='color:red;text-align: center'>{$row}</p>";
+
+
+
+
+                        }
+
+
+
+                    }
+
+
+
+
+
+
+
+
+
+                ?>
+                <form method="post" action="">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="password" name="old_pass" placeholder="Nhập mật khẩu cũ" class="change-passwd">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="password" name="new_pass" placeholder="Nhập mật khẩu mới" class="change-passwd">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="password" name="new_pass2" placeholder="Nhập lại mật khẩu mới" class="change-passwd">
+                        </div>
+                    </div>
+                    <br><br>
+                    <p class="detail"><button type="submit" style="padding: 15px;background: white;border:1px solid black;cursor: pointer"><i class="fas fa-edit">Thay đổi</i></button> </p>
+                </form>
+                <p class="detail"><button type="button" style="padding: 15px;background: white;border:1px solid black;cursor: pointer"><a href="?action=profile"><i class="fa fa-backward" aria-hidden="true"> Quay về trang cài đặt</i></a> </button> </p>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
+    </div>
+    <div style="height: 100px"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
